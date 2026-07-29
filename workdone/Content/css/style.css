@@ -1,0 +1,217 @@
+:root {
+    --primary-color: #4F46E5; /* Indigo */
+    --primary-hover: #4338CA;
+    --text-dark: #111827;
+    --text-muted: #6B7280;
+    --bg-light: #F9FAFB;
+    --border-radius: 1rem;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: #FFFFFF;
+}
+
+/* Utilities */
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.bg-primary-subtle { background-color: rgba(79, 70, 229, 0.1) !important; }
+
+.btn-primary { 
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.transition {
+    transition: var(--transition);
+}
+
+.hover-primary:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+.hover-white:hover {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.max-w-2xl {
+    max-width: 42rem;
+}
+
+/* Navbar */
+.navbar {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.navbar-brand { 
+    letter-spacing: -0.5px; 
+}
+.nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: var(--transition);
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+.btn-hover {
+    transition: var(--transition);
+}
+.btn-hover:hover {
+    color: var(--primary-color) !important;
+}
+.location-btn {
+    background-color: var(--bg-light);
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero-title {
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+.search-box {
+    border: 1px solid #E5E7EB;
+}
+.search-input input:focus, .location-input select:focus {
+    box-shadow: none;
+    outline: none;
+}
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid #E5E7EB;
+    }
+}
+
+.hero-image-wrapper {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Category Cards */
+.category-card {
+    transition: var(--transition);
+    border: 1px solid #F3F4F6 !important;
+}
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    border-color: #E5E7EB !important;
+}
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    transition: var(--transition);
+}
+.category-card:hover .icon-wrapper {
+    transform: scale(1.1);
+}
+
+/* Service Cards */
+.service-card {
+    transition: var(--transition);
+    border: 1px solid #F3F4F6 !important;
+}
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+.service-card img {
+    transition: transform 0.6s ease;
+}
+.service-card:hover img {
+    transform: scale(1.08);
+}
+
+/* How It Works */
+.step-icon {
+    width: 60px;
+    height: 60px;
+    font-weight: 700;
+}
+.step-card {
+    transition: var(--transition);
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+}
+
+/* Worker Cards */
+.worker-card {
+    transition: var(--transition);
+    border: 1px solid #F3F4F6 !important;
+}
+.worker-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    border-color: #E5E7EB !important;
+}
+
+/* Trust Section */
+.trust-icon {
+    transition: var(--transition);
+}
+.trust-icon:hover {
+    background-color: var(--primary-color) !important;
+    transform: scale(1.1);
+}
+.trust-icon:hover i {
+    color: white !important;
+}
+
+/* Review Cards */
+.review-card {
+    transition: var(--transition);
+    border: 1px solid #F3F4F6 !important;
+}
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05) !important;
+}
+
+/* CTA Banner */
+.cta-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #312E81 100%);
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
