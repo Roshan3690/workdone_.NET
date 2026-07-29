@@ -1,0 +1,139 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="workdone.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server">WorkDone - Local Services. Trusted Professionals.</asp:ContentPlaceHolder></title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link href="Content/css/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- 1. NAVBAR -->
+        <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm py-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary fs-4" href="Default.aspx">
+                    <i class="bi bi-tools text-primary me-2"></i>WorkDone<span class="text-dark">.com</span>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+                        <li class="nav-item"><a class="nav-link active" href="Default.aspx">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Services.aspx">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Professionals.aspx">Find Workers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="HowItWorks.aspx">How It Works</a></li>
+                        <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
+                    </ul>
+                    
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-3 mt-3 mt-lg-0">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle location-btn rounded-pill border-0 px-3 w-100 text-start" type="button" id="locationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-geo-alt-fill text-danger me-1"></i> Rajkot
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm w-100" aria-labelledby="locationDropdown">
+                                <li><a class="dropdown-item" href="#">Rajkot</a></li>
+                                <li><a class="dropdown-item" href="#">Ahmedabad</a></li>
+                                <li><a class="dropdown-item" href="#">Surat</a></li>
+                            </ul>
+                        </div>
+                        <a href="Login.aspx" class="text-decoration-none text-dark fw-medium btn-hover">Login</a>
+                        <a href="Register.aspx" class="text-decoration-none text-dark fw-medium btn-hover">Sign Up</a>
+                        <a href="JoinProfessional.aspx" class="btn btn-outline-primary rounded-pill px-4 fw-medium text-nowrap">Join as Professional</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+            <div class="container">
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-4 col-md-6">
+                        <a class="navbar-brand fw-bold text-white fs-4 mb-4 d-inline-block" href="Default.aspx">
+                            <i class="bi bi-tools text-primary me-2"></i>WorkDone<span class="text-white-50">.com</span>
+                        </a>
+                        <p class="text-white-50 mb-4 pe-lg-4">Your trusted partner for everyday local services. Connecting skilled professionals with customers seamlessly.</p>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-6">
+                        <h5 class="fw-bold mb-4 text-white">Company</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><a href="About.aspx" class="text-white-50 text-decoration-none hover-white transition">About Us</a></li>
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Careers</a></li>
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Contact Us</a></li>
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Terms & Conditions</a></li>
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-6">
+                        <h5 class="fw-bold mb-4 text-white">For Professionals</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><a href="JoinProfessional.aspx" class="text-white-50 text-decoration-none hover-white transition">Join as Professional</a></li>
+                            <li class="mb-3"><a href="Login.aspx" class="text-white-50 text-decoration-none hover-white transition">Professional Login</a></li>
+                            <li class="mb-3"><a href="HowItWorks.aspx" class="text-white-50 text-decoration-none hover-white transition">How It Works</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <h5 class="fw-bold mb-4 text-white">Support</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Help Center</a></li>
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Contact Support</a></li>
+                            <li class="mb-3"><a href="#" class="text-white-50 text-decoration-none hover-white transition">Safety</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <hr class="border-secondary opacity-50 mb-4">
+                
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small">
+                    <p class="mb-2 mb-md-0">&copy; 2026 WorkDone.com. All rights reserved.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50 text-decoration-none hover-white">Privacy</a>
+                        <a href="#" class="text-white-50 text-decoration-none hover-white">Terms</a>
+                        <a href="#" class="text-white-50 text-decoration-none hover-white">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </form>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="Scripts/main.js"></script>
+</body>
+</html>
