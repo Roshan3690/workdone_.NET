@@ -228,7 +228,7 @@
                                 <div class="d-flex justify-content-between align-items-end mt-auto">
                                     <div>
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
-                                        <span class="fw-bold text-dark fs-5">₹299</span>
+                                        <span class="fw-bold text-dark fs-5">Rs. 299</span>
                                     </div>
                                     <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
                                 </div>
@@ -248,7 +248,7 @@
                                 <div class="d-flex justify-content-between align-items-end mt-auto">
                                     <div>
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
-                                        <span class="fw-bold text-dark fs-5">₹999</span>
+                                        <span class="fw-bold text-dark fs-5">Rs. 999</span>
                                     </div>
                                     <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
                                 </div>
@@ -268,7 +268,7 @@
                                 <div class="d-flex justify-content-between align-items-end mt-auto">
                                     <div>
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
-                                        <span class="fw-bold text-dark fs-5">₹499</span>
+                                        <span class="fw-bold text-dark fs-5">Rs. 499</span>
                                     </div>
                                     <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
                                 </div>
@@ -288,7 +288,7 @@
                                 <div class="d-flex justify-content-between align-items-end mt-auto">
                                     <div>
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
-                                        <span class="fw-bold text-dark fs-5">₹199</span>
+                                        <span class="fw-bold text-dark fs-5">Rs. 199</span>
                                     </div>
                                     <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
                                 </div>
@@ -376,7 +376,7 @@
                             </div>
                             <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
                                 <i class="bi bi-geo-alt-fill text-danger me-2"></i> Rajkot Area
-                                <span class="ms-auto fw-bold text-dark fs-6">Starting ₹299</span>
+                                <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 299</span>
                             </div>
                             <div class="d-flex gap-2 mt-auto">
                                 <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
@@ -411,7 +411,7 @@
                             </div>
                             <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
                                 <i class="bi bi-geo-alt-fill text-danger me-2"></i> Rajkot City
-                                <span class="ms-auto fw-bold text-dark fs-6">Starting ₹199</span>
+                                <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 199</span>
                             </div>
                             <div class="d-flex gap-2 mt-auto">
                                 <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
@@ -446,7 +446,7 @@
                             </div>
                             <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
                                 <i class="bi bi-geo-alt-fill text-danger me-2"></i> 150ft Ring Road
-                                <span class="ms-auto fw-bold text-dark fs-6">Starting ₹499</span>
+                                <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 499</span>
                             </div>
                             <div class="d-flex gap-2 mt-auto">
                                 <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
