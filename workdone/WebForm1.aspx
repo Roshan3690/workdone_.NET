@@ -120,7 +120,6 @@
         }
 
         .panel input, .panel select, .panel textarea {
-            width: 100%;
             padding: 10px;
             margin-top: 6px;
             margin-bottom: 12px;
@@ -201,21 +200,16 @@
                     <div class="panel" id="register">
                         <h3>Register as a Worker</h3>
                         <label>Your Name</label>
-                        <input type="text" placeholder="Enter your full name" />
-                        <label>Service Type</label>
-                        <select>
-                            <option>Plumber</option>
-                            <option>Carpenter</option>
-                            <option>Electrician</option>
-                            <option>Beauty Parlor</option>
-                            <option>AC Cleaning</option>
-                            <option>Home Cleaning</option>
-                        </select>
-                        <label>Location</label>
-                        <input type="text" placeholder="Your city or area" />
-                        <label>Phone Number</label>
-                        <input type="text" placeholder="Contact number" />
-                        <button type="button">Register Now</button>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;<label>Service Type</label>
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        </asp:DropDownList>
+&nbsp;<label>Location</label>
+                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+&nbsp;<label>Phone Number</label>
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register now" Width="331px" />
                     </div>
 
                     <div class="panel" id="book">
@@ -241,7 +235,7 @@
             </section>
 
             <footer>
-                <p>WorkDone — A smarter way to connect local workers with the people who need them.</p>
+                <p>Wo&nbsp;&nbsp;&nbsp; rkDone — A smarter way to connect local workers with the people who need them.</p>
             </footer>
         </div>
     </form>
