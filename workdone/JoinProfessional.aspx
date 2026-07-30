@@ -66,53 +66,59 @@
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6">
                                 <label for="txtFirstNamePro" class="form-label fw-medium small">First Name</label>
-                                <input type="text" class="form-control rounded-3 py-2 bg-light border-0" id="txtFirstNamePro" placeholder="John">
+                                <br />
+&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-sm-6">
                                 <label for="txtLastNamePro" class="form-label fw-medium small">Last Name</label>
-                                <input type="text" class="form-control rounded-3 py-2 bg-light border-0" id="txtLastNamePro" placeholder="Doe">
+                                <br />
+&nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6">
-                                <label for="txtPhonePro" class="form-label fw-medium small">Phone Number</label>
-                                <input type="tel" class="form-control rounded-3 py-2 bg-light border-0" id="txtPhonePro" placeholder="+91 9876543210">
+                                <label for="txtPhonePro" class="form-label fw-medium small">Phone Number</label>&nbsp;
+                                <br />
+                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-sm-6">
                                 <label for="ddlCity" class="form-label fw-medium small">City</label>
-                                <select class="form-select rounded-3 py-2 bg-light border-0 text-muted" id="ddlCity">
-                                    <option selected>Select your city</option>
-                                    <option value="Rajkot">Rajkot</option>
-                                    <option value="Ahmedabad">Ahmedabad</option>
-                                    <option value="Surat">Surat</option>
-                                </select>
+                                <br />
+&nbsp;<asp:DropDownList ID="DropDownList1" runat="server">
+                                    <asp:ListItem>Rajkot</asp:ListItem>
+                                    <asp:ListItem>Surat</asp:ListItem>
+                                    <asp:ListItem>Ahmdabad</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="ddlService" class="form-label fw-medium small">Primary Service</label>
-                            <select class="form-select rounded-3 py-2 bg-light border-0 text-muted" id="ddlService">
-                                <option selected>Select a service category</option>
-                                <option value="Plumbing">Plumbing</option>
-                                <option value="Electrician">Electrician</option>
-                                <option value="Cleaning">Home Cleaning</option>
-                                <option value="AC Repair">AC Repair & Service</option>
-                                <option value="Carpentry">Carpentry</option>
-                            </select>
+                            <br />
+&nbsp;<asp:DropDownList ID="DropDownList2" runat="server">
+                                <asp:ListItem>Home Cleaning</asp:ListItem>
+                                <asp:ListItem>Electrician</asp:ListItem>
+                                <asp:ListItem>AC Repair</asp:ListItem>
+                                <asp:ListItem>Carpentry</asp:ListItem>
+                                <asp:ListItem>Painting</asp:ListItem>
+                                <asp:ListItem>Beauty &amp; Salon</asp:ListItem>
+                                <asp:ListItem>Vehicle Repair</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         
                         <div class="mb-4">
                             <label for="txtExperience" class="form-label fw-medium small">Years of Experience</label>
-                            <input type="number" class="form-control rounded-3 py-2 bg-light border-0" id="txtExperience" placeholder="e.g. 5" min="0">
+                            <br />
+                            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
                         </div>
 
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="chkProTerms">
                             <label class="form-check-label small text-muted" for="chkProTerms">I agree to the <a href="#" class="text-primary text-decoration-none">Professional Terms & Conditions</a></label>
+                            <br />
+                            <asp:Button ID="Button1" runat="server" Text="Submit Application" Height="55px" OnClick="Button1_Click" Width="543px" />
                         </div>
-                        
-                        <button type="button" class="btn btn-primary w-100 rounded-pill py-3 fw-bold mb-3 shadow-sm hover-scale fs-6">Submit Application</button>
                         
                         <div class="text-center mt-3">
                             <p class="text-muted small mb-0">Already registered as a pro? <a href="Login.aspx" class="text-decoration-none fw-bold text-primary">Log In</a></p>

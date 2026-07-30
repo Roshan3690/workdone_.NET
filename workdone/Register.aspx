@@ -17,43 +17,55 @@
                             <h4 class="fw-bold mt-4 mb-2">Create an Account</h4>
                             <p class="text-muted small">Join us to book local services easily</p>
                         </div>
-                        
+
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6">
                                 <label for="txtFirstName" class="form-label fw-medium small">First Name</label>
-                                <input type="text" class="form-control rounded-3 py-2 bg-light border-0" id="txtFirstName" placeholder="John">
+
+                                &nbsp;<asp:TextBox ID="TextBox1" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
                             </div>
+
                             <div class="col-sm-6">
                                 <label for="txtLastName" class="form-label fw-medium small">Last Name</label>
-                                <input type="text" class="form-control rounded-3 py-2 bg-light border-0" id="txtLastName" placeholder="Doe">
+                                <br />
+                                <asp:TextBox ID="TextBox2" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
+                                &nbsp;
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="txtEmail" class="form-label fw-medium small">Email Address</label>
-                            <input type="email" class="form-control rounded-3 py-2 bg-light border-0" id="txtEmail" placeholder="name@example.com">
+                            <br />
+                            <asp:TextBox ID="TextBox3" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
+                            &nbsp;
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtPhone" class="form-label fw-medium small">Phone Number</label>
-                            <input type="tel" class="form-control rounded-3 py-2 bg-light border-0" id="txtPhone" placeholder="+91 9876543210">
+                            <label for="txtPhone" class="form-label fw-medium small">
+                                Phone Number<br />
+                                <asp:TextBox ID="TextBox4" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
+                            </label>
+                            &nbsp;
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="txtPassword" class="form-label fw-medium small">Password</label>
-                            <input type="password" class="form-control rounded-3 py-2 bg-light border-0" id="txtPassword" placeholder="Create a strong password">
-                            <div class="form-text small text-muted mt-1">Must be at least 8 characters long.</div>
+                            <br />
+                            <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
+                            &nbsp;<div class="form-text small text-muted mt-1">Must be at least 8 characters long.</div>
                         </div>
-                        
+
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="chkTerms">
                             <label class="form-check-label small text-muted" for="chkTerms">I agree to the <a href="#" class="text-primary text-decoration-none">Terms of Service</a> and <a href="#" class="text-primary text-decoration-none">Privacy Policy</a></label>
-                        </div>
-                        
-                        <button type="button" class="btn btn-primary w-100 rounded-pill py-2 fw-medium mb-3 shadow-sm hover-scale">Create Account</button>
-                        
-                        <div class="text-center mt-3 border-top pt-4">
-                            <p class="text-muted small mb-0">Already have an account? <a href="Login.aspx" class="text-decoration-none fw-bold text-primary">Log In</a></p>
+                            <p class="text-muted small mb-0">
+                                <asp:Button ID="Button1" runat="server" Text="Create Account" class="btn btn-primary w-100 rounded-pill py-2 fw-medium mb-3 shadow-sm hover-scale" OnClick="Button1_Click" />
+                                Already have an account? <a href="Login.aspx" class="text-decoration-none fw-bold text-primary">Log In</a>
+                                <br />
+                                <center>
+                                    <asp:Label ID="Label1" runat="server" Style="color: red"></asp:Label>
+                                </center>
+                            </p>
                         </div>
                     </div>
                 </div>
