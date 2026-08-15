@@ -21,38 +21,44 @@
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6">
                                 <label for="txtFirstName" class="form-label fw-medium small">First Name</label>
-
-                                &nbsp;<asp:TextBox ID="TextBox1" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
+                                <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter first name"></asp:TextBox>
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="txtLastName" class="form-label fw-medium small">Last Name</label>
-                                <br />
-                                <asp:TextBox ID="TextBox2" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
-                                &nbsp;
+                                <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter last name"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="txtEmail" class="form-label fw-medium small">Email Address</label>
-                            <br />
-                            <asp:TextBox ID="TextBox3" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
-                            &nbsp;
+                            <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="you@example.com"></asp:TextBox>
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtPhone" class="form-label fw-medium small">
-                                Phone Number<br />
-                                <asp:TextBox ID="TextBox4" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
-                            </label>
-                            &nbsp;
+                            <label for="txtPhone" class="form-label fw-medium small">Phone Number</label>
+                            <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter phone number"></asp:TextBox>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ddlGender" class="form-label fw-medium small">Gender</label>
+                            <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-select rounded-3 py-2 bg-light border-1">
+                                <asp:ListItem Value="">Select gender</asp:ListItem>
+                                <asp:ListItem>Male</asp:ListItem>
+                                <asp:ListItem>Female</asp:ListItem>
+                                <asp:ListItem>Other</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtAddress" class="form-label fw-medium small">Address</label>
+                            <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter your full address"></asp:TextBox>
                         </div>
 
                         <div class="mb-3">
                             <label for="txtPassword" class="form-label fw-medium small">Password</label>
-                            <br />
-                            <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded-3 py-2 bg-light border-1"></asp:TextBox>
-                            &nbsp;<div class="form-text small text-muted mt-1">Must be at least 8 characters long.</div>
+                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Create password"></asp:TextBox>
+                            <div class="form-text small text-muted mt-1">Must be at least 8 characters long.</div>
                         </div>
 
                         <div class="mb-4 form-check">
