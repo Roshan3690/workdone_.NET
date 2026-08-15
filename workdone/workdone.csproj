@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\workdoneDB.mdf" />
+    <Content Include="App_Data\workdoneDB_log.ldf">
+      <DependentUpon>workdoneDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Default.aspx" />
@@ -162,6 +166,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
