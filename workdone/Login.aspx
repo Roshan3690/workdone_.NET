@@ -20,16 +20,17 @@
                         
                         <div class="mb-3">
                             <label for="txtEmail" class="form-label fw-medium small">Email Address</label>
-                            <input type="email" class="form-control rounded-3 py-2 bg-light border-0" id="txtEmail" placeholder="name@example.com">
+                            <br />
+&nbsp;<asp:TextBox ID="txtemail" runat="server" Width="266px"></asp:TextBox>
                         </div>
                         
                         <div class="mb-3">
-                            <div class="d-flex justify-content-between align-items-center">
+                            
                                 <label for="txtPassword" class="form-label fw-medium small mb-0">Password</label>
-                                <a href="#" class="text-decoration-none small text-primary fw-medium">Forgot Password?</a>
+                                <br />
+                                &nbsp;<asp:TextBox ID="txtpass" runat="server" Width="273px"></asp:TextBox>
                             </div>
-                            <input type="password" class="form-control rounded-3 py-2 bg-light border-0 mt-2" id="txtPassword" placeholder="Enter your password">
-                        </div>
+                            <%--&nbsp;</div>--%>
                         
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="chkRemember">
@@ -39,6 +40,11 @@
                         <button type="button" class="btn btn-primary w-100 rounded-pill py-2 fw-medium mb-3 shadow-sm hover-scale">Log In</button>
                         
                         <div class="text-center mt-3 border-top pt-4">
+                            <p class="text-muted small mb-0">
+                                <a href="#" class="text-decoration-none small text-primary fw-medium">Forgot Password?</a></p>
+                            <p class="text-muted small mb-0">
+                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                            </p>
                             <p class="text-muted small mb-0">Don't have an account? <a href="Register.aspx" class="text-decoration-none fw-bold text-primary">Sign Up</a></p>
                             <p class="text-muted small mt-2">Are you a professional? <a href="JoinProfessional.aspx" class="text-decoration-none fw-bold text-dark">Login here</a></p>
                         </div>

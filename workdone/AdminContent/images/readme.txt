@@ -1,0 +1,1 @@
+<!-- Admin image assets directory -->

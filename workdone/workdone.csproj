@@ -67,6 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminContent\css\admin.css" />
+    <Content Include="AdminContent\images\readme.txt" />
+    <Content Include="AdminContent\js\admin.js" />
+    <Content Include="Admin\AdminLogin.aspx" />
+    <Content Include="Admin\AdminUsers.aspx" />
+    <Content Include="Admin\AdminWorkers.aspx" />
     <Content Include="App_Data\workdoneDB.mdf" />
     <Content Include="App_Data\workdoneDB_log.ldf">
       <DependentUpon>workdoneDB.mdf</DependentUpon>
@@ -86,6 +92,34 @@
     <Content Include="JoinProfessional.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUsers.aspx.cs">
+      <DependentUpon>AdminUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUsers.aspx.designer.cs">
+      <DependentUpon>AdminUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminWorkers.aspx.cs">
+      <DependentUpon>AdminWorkers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminWorkers.aspx.designer.cs">
+      <DependentUpon>AdminWorkers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -159,6 +193,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Admin.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
