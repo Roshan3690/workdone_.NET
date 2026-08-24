@@ -14,8 +14,8 @@ namespace workdone
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string email = TextBox1.Text;
-            string password = TextBox2.Text;
+            string email = txtemail.Text;
+            string password = txtemail.Text;
 
             if (email !="" && password !="")
             {

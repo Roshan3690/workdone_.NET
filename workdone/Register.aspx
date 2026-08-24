@@ -21,12 +21,12 @@
                         <div class="row g-3 mb-3">
                             <div class="col-sm-6">
                                 <label for="txtFirstName" class="form-label fw-medium small">First Name</label>
-                                <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter first name"></asp:TextBox>
+                                <asp:TextBox ID="txtfname" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter first name"></asp:TextBox>
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="txtLastName" class="form-label fw-medium small">Last Name</label>
-                                <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter last name"></asp:TextBox>
+                                <asp:TextBox ID="txtlname" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter last name"></asp:TextBox>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
 
                         <div class="mb-3">
                             <label for="txtPassword" class="form-label fw-medium small">Password</label>
-                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Create password"></asp:TextBox>
+                            <asp:TextBox ID="txtpass" runat="server" TextMode="Password" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Create password"></asp:TextBox>
                             <div class="form-text small text-muted mt-1">Must be at least 8 characters long.</div>
                         </div>
 
@@ -77,5 +77,4 @@
                 </div>
             </div>
         </div>
-    </section>
 </asp:Content>
