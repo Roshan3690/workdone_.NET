@@ -137,10 +137,10 @@
                             <div class="col-sm-6">
                                 <label for="fileProfessionalPic" class="form-label fw-medium small">Profile Picture</label>
                                 <asp:FileUpload ID="FileUpload1" runat="server" />
-                            </div>
                             <div class="col-sm-6">
                                 <label for="txtProfessionalAadhaarId" class="form-label fw-medium small">Aadhaar ID</label>
                                 <asp:TextBox ID="txtProfessionalAadhaarId" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter Aadhaar number"></asp:TextBox>
+                            </div>
                             </div>
                         </div>
 
@@ -156,6 +156,9 @@
 
                         <div class="text-center mt-3">
                             <p class="text-muted small mb-0">Already registered as a pro? <a href="Login.aspx" class="text-decoration-none fw-bold text-primary">Log In</a></p>
+                            <p class="text-muted small mb-0">
+                               
+                            </p>
                         </div>
                     </div>
                 </div>

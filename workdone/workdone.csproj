@@ -70,15 +70,14 @@
     <Content Include="AdminContent\css\admin.css" />
     <Content Include="AdminContent\images\readme.txt" />
     <Content Include="AdminContent\js\admin.js" />
-    <Content Include="Admin\AdminLogin.aspx" />
     <Content Include="Admin\AdminUsers.aspx" />
     <Content Include="Admin\AdminWorkers.aspx" />
     <Content Include="App_Data\workdoneDB.mdf" />
     <Content Include="App_Data\workdoneDB_log.ldf">
       <DependentUpon>workdoneDB.mdf</DependentUpon>
     </Content>
+    <Content Include="CustomerProfile.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Content\css\style.css" />
     <Content Include="Scripts\main.js" />
@@ -99,13 +98,6 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\AdminUsers.aspx.cs">
       <DependentUpon>AdminUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,14 +112,14 @@
     <Compile Include="Admin\AdminWorkers.aspx.designer.cs">
       <DependentUpon>AdminWorkers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="CustomerProfile.aspx.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="CustomerProfile.aspx.designer.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

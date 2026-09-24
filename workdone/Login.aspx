@@ -35,9 +35,9 @@
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="chkRemember">
                             <label class="form-check-label small text-muted" for="chkRemember">Remember me for 30 days</label>
+                            <br />
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Login" />
                         </div>
-                        
-                        <button type="button" class="btn btn-primary w-100 rounded-pill py-2 fw-medium mb-3 shadow-sm hover-scale">Log In</button>
                         
                         <div class="text-center mt-3 border-top pt-4">
                             <p class="text-muted small mb-0">

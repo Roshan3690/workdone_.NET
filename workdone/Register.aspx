@@ -11,9 +11,11 @@
                 <div class="col-md-8 col-lg-6 col-xl-5">
                     <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
                         <div class="text-center mb-4">
-                            <a class="navbar-brand fw-bold text-primary fs-3" href="Default.aspx">
-                                <i class="bi bi-tools text-primary me-2"></i>WorkDone<span class="text-dark">.com</span>
-                            </a>
+                            <p>
+                                <a class="navbar-brand fw-bold text-primary fs-3" href="Default.aspx">
+                                    <i class="bi bi-tools text-primary me-2"></i>WorkDone<span class="text-dark">.com</span>
+                                </a>
+                            </p>
                             <h4 class="fw-bold mt-4 mb-2">Create an Account</h4>
                             <p class="text-muted small">Join us to book local services easily</p>
                         </div>
@@ -71,10 +73,55 @@
                                 <center>
                                     <asp:Label ID="Label1" runat="server" Style="color: red"></asp:Label>
                                 </center>
-                            </p>
+                                </p>
+                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Id">
+                                            <ItemTemplate>
+                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="fname">
+                                            <ItemTemplate>
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("fname") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="lname">
+                                            <ItemTemplate>
+                                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("lname") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="email">
+                                            <ItemTemplate>
+                                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("email") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="gender">
+                                            <ItemTemplate>
+                                                <asp:Label ID="Label6" runat="server" Text='<%# Eval("gender") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="phone">
+                                            <ItemTemplate>
+                                                <asp:Label ID="Label7" runat="server" Text='<%# Eval("phone") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Edit">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' Text="Edit" CommandName="cmd_edt"></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Delete">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 </asp:Content>
