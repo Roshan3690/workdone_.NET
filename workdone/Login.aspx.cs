@@ -31,17 +31,7 @@ namespace workdone
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            //string email = txtemail.Text;
-            //string password = txtemail.Text;
-
-            //if (email != "" && password != "")
-            //{
-            //    Response.Redirect("Default.aspx");
-            //}
-            //else
-            //{
-            //    Label1.Text = "Fill all the filds";
-            //}
+            
 
         }
         
