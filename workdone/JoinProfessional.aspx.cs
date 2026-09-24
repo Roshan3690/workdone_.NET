@@ -30,7 +30,8 @@ namespace workdone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            getcon();
+            //fillgride();
         }
 
         void imgupload()
@@ -38,6 +39,18 @@ namespace workdone
             fnm = "image/" + FileUpload1.FileName;
             FileUpload1.SaveAs(Server.MapPath(fnm));
         }
+        void fillgride()
+        {
+            getcon();
+
+            da = new SqlDataAdapter("SELECT * FROM profesonalTBL", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            //GridView1.DataSource = ds;
+            //xGridView1.DataBind();
+        }
+
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -62,19 +75,6 @@ namespace workdone
                 imgupload();
                 cmd = new SqlCommand("insert into profesonalTBL values('" + fname + "','" + lname + "','" + phone + "','" + city + "','" + service + "','" + experience + "','" + email + "','" + gender + "','" + address + "','" + fnm + "','" + aadhaarId + "')", con);
                 
-                //cmd = new SqlCommand("INSERT INTO profesonalTBL (fname, lname, phone, city, service, experience, email, Gender, address, pic, addhar_id) VALUES (@fname, @lname, @phone, @city, @service, @experience, @email, @gender, @address, @fnm, @aadhaarId)",con);
-
-                //cmd.Parameters.AddWithValue("@fname", fname);
-                //cmd.Parameters.AddWithValue("@lname", lname);
-                //cmd.Parameters.AddWithValue("@phone", phone);
-                //cmd.Parameters.AddWithValue("@city", city);
-                //cmd.Parameters.AddWithValue("@service", service);
-                //cmd.Parameters.AddWithValue("@experience", experience);
-                //cmd.Parameters.AddWithValue("@email", email);
-                //cmd.Parameters.AddWithValue("@gender", gender);
-                //cmd.Parameters.AddWithValue("@address", address);
-                //cmd.Parameters.AddWithValue("@fnm", fnm);
-                //cmd.Parameters.AddWithValue("@aadhaarId", aadhaarId);
                 cmd.ExecuteNonQuery();
 
                 Response.Redirect("Default.aspx");

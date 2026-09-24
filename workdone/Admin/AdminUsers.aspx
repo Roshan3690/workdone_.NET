@@ -14,10 +14,12 @@
             box-shadow: var(--admin-shadow-sm);
             transition: var(--admin-transition);
         }
-        .metric-card:hover {
-            box-shadow: var(--admin-shadow-md);
-            transform: translateY(-2px);
-        }
+
+            .metric-card:hover {
+                box-shadow: var(--admin-shadow-md);
+                transform: translateY(-2px);
+            }
+
         .metric-icon {
             width: 48px;
             height: 48px;
@@ -42,7 +44,7 @@
         </div>
         <div>
             <a href="../Register.aspx" target="_blank" class="btn btn-admin-primary shadow-sm">
-                <i class="bi bi-person-plus-fill me-1"></i> Register New Customer
+                <i class="bi bi-person-plus-fill me-1"></i>Register New Customer
             </a>
         </div>
     </div>
@@ -51,7 +53,8 @@
     <asp:Panel ID="pnlAlert" runat="server" Visible="false">
         <div class="d-flex align-items-center">
             <i class="bi bi-info-circle-fill fs-5 me-2"></i>
-            <div><asp:Label ID="lblAlertMessage" runat="server"></asp:Label></div>
+            <div>
+                <asp:Label ID="lblAlertMessage" runat="server"></asp:Label></div>
             <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </asp:Panel>
@@ -116,7 +119,7 @@
                 </asp:DropDownList>
             </div>
             <div class="col-sm-6 col-lg-3 col-md-3 d-flex gap-2">
-                            </div>
+            </div>
         </div>
     </div>
 
@@ -132,8 +135,50 @@
 
         <div class="p-4">
             <!-- YOU CAN ADD YOUR GRIDVIEW HERE -->
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" Width="359px"></asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
+    <Columns>
+        <asp:TemplateField HeaderText="Id">
+            <ItemTemplate>
+                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="fname">
+            <ItemTemplate>
+                <asp:Label ID="Label3" runat="server" Text='<%# Eval("fname") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="lname">
+            <ItemTemplate>
+                <asp:Label ID="Label4" runat="server" Text='<%# Eval("lname") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="email">
+            <ItemTemplate>
+                <asp:Label ID="Label5" runat="server" Text='<%# Eval("email") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="gender">
+            <ItemTemplate>
+                <asp:Label ID="Label6" runat="server" Text='<%# Eval("gender") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="phone">
+            <ItemTemplate>
+                <asp:Label ID="Label7" runat="server" Text='<%# Eval("phone") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Edit">
+            <ItemTemplate>
+                <asp:LinkButton ID="btn_edt" runat="server" CommandArgument='<%# Eval("Id") %>' Text="Edit" CommandName="cmd_edt"></asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Delete">
+            <ItemTemplate>
+                <asp:LinkButton ID="btn_dlt" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
         </div>
     </div>
 </asp:Content>
