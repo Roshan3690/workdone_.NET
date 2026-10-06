@@ -64,6 +64,7 @@ namespace workdone
             string gender = ddlProfessionalGender.SelectedValue;
             string address = txtProfessionalAddress.Text;
             string aadhaarId = txtProfessionalAadhaarId.Text;
+            string prof_password = txtprof_pass.Text;
 
 
             if (!string.IsNullOrEmpty(fname) && !string.IsNullOrEmpty(lname) && !string.IsNullOrEmpty(email)
@@ -73,7 +74,7 @@ namespace workdone
             {
                 getcon();
                 imgupload();
-                cmd = new SqlCommand("insert into profesonalTBL values('" + fname + "','" + lname + "','" + phone + "','" + city + "','" + service + "','" + experience + "','" + email + "','" + gender + "','" + address + "','" + fnm + "','" + aadhaarId + "')", con);
+                cmd = new SqlCommand("insert into profesonalTBL values('" + fname + "','" + lname + "','" + phone + "','" + city + "','" + service + "','" + experience + "','" + email + "','" + gender + "','" + address + "','" + fnm + "','" + aadhaarId + "','"+prof_password+"')", con);
                 
                 cmd.ExecuteNonQuery();
 

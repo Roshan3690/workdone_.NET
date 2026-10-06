@@ -7,56 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace workdone.Admin
+namespace workdone
 {
 
 
-    public partial class AdminMaster
+    public partial class ProfessionalProfile
     {
 
         /// <summary>
-        /// AdminTitle control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminTitle;
+        protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// AdminHead control.
+        /// lblpronm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminHead;
+        protected global::System.Web.UI.WebControls.Label lblpronm;
 
         /// <summary>
-        /// adminForm control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm adminForm;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// AdminMainContent control.
+        /// lblprosrv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminMainContent;
-
-        /// <summary>
-        /// AdminScripts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminScripts;
+        protected global::System.Web.UI.WebControls.Label lblprosrv;
     }
 }
