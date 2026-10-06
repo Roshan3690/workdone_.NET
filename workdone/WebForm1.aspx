@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="workdone.WebForm1" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="workdone.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -126,6 +126,7 @@
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             box-sizing: border-box;
+            width: 100%;
         }
 
         .panel button {
@@ -200,16 +201,15 @@
                     <div class="panel" id="register">
                         <h3>Register as a Worker</h3>
                         <label>Your Name</label>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-&nbsp;<label>Service Type</label>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                        <label>Service Type</label>
+                        <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                         </asp:DropDownList>
-&nbsp;<label>Location</label>
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-&nbsp;<label>Phone Number</label>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                        <br />
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register now" Width="331px" />
+                        <label>Location</label>
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                        <label>Phone Number</label>
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register now" CssClass="btn btn-primary w-100 mt-2 hover-scale" />
                     </div>
 
                     <div class="panel" id="book">

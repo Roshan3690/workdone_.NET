@@ -86,6 +86,16 @@
 
                 <!-- Results -->
                 <div class="col-lg-9">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="fw-bold mb-0">Showing <span class="text-primary">124</span> professionals</h5>
                         <select class="form-select w-auto border-0 shadow-sm rounded-pill px-3">
@@ -96,113 +106,154 @@
                         </select>
                     </div>
 
-                    <div class="row g-4">
-                        <!-- Worker Card 1 -->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
-                                <div class="d-flex align-items-center mb-4">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm" width="80" height="80" alt="Worker">
-                                    <div>
-                                        <h5 class="fw-bold mb-1 d-flex align-items-center">Rahul Patel <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
-                                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Electrician</span>
-                                    </div>
-                                </div>
-                                <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
-                                    <div class="col-4 border-end border-secondary-subtle">
-                                        <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.8</div>
-                                        <div class="small text-muted">Rating</div>
-                                    </div>
-                                    <div class="col-4 border-end border-secondary-subtle">
-                                        <div class="fw-bold fs-5 text-dark">320+</div>
-                                        <div class="small text-muted">Jobs</div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="fw-bold fs-5 text-dark">6 Yrs</div>
-                                        <div class="small text-muted">Exp</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
-                                    <i class="bi bi-geo-alt-fill text-danger me-2"></i> Rajkot Area
-                                    <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 299</span>
-                                </div>
-                                <div class="d-flex gap-2 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                    <button class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</button>
-                                </div>
-                            </div>
-                        </div>
+                    <style>
+                        .pro-card {
+                            background: #fff;
+                            border-radius: 18px;
+                            box-shadow: 0 4px 24px rgba(80,80,180,0.10);
+                            padding: 28px 22px 22px 22px;
+                            display: inline-block;
+                            width: 260px;
+                            margin: 12px;
+                            vertical-align: top;
+                            transition: box-shadow 0.25s, transform 0.25s;
+                            border: 1px solid #ececf5;
+                        }
+                        .pro-card:hover {
+                            box-shadow: 0 10px 36px rgba(80,80,180,0.18);
+                            transform: translateY(-4px);
+                        }
+                        .pro-card .pro-img-wrap {
+                            display: flex;
+                            justify-content: center;
+                            margin-bottom: 16px;
+                        }
+                        .pro-card .pro-img {
+                            width: 90px;
+                            height: 90px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 3px solid #d0d8ff;
+                            box-shadow: 0 2px 10px rgba(80,80,180,0.15);
+                        }
+                        .pro-card .pro-name {
+                            font-size: 1.08rem;
+                            font-weight: 700;
+                            color: #1a1a2e;
+                            text-align: center;
+                            margin-bottom: 6px;
+                        }
+                        .pro-card .pro-badge {
+                            display: inline-block;
+                            background: #eef0ff;
+                            color: #4f5bd5;
+                            border: 1px solid #c7ccf7;
+                            border-radius: 20px;
+                            font-size: 0.78rem;
+                            font-weight: 600;
+                            padding: 2px 14px;
+                            margin-bottom: 12px;
+                        }
+                        .pro-card .pro-info-row {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 6px;
+                            font-size: 0.88rem;
+                            color: #555;
+                            margin-bottom: 6px;
+                        }
+                        .pro-card .pro-info-row .pi-icon {
+                            color: #4f5bd5;
+                            font-size: 1rem;
+                        }
+                        .pro-card .pro-divider {
+                            border: none;
+                            border-top: 1px solid #ececf5;
+                            margin: 14px 0;
+                        }
+                        .pro-card .pro-actions {
+                            display: flex;
+                            gap: 10px;
+                            margin-top: 6px;
+                        }
+                        .pro-card .btn-view {
+                            flex: 1;
+                            background: transparent;
+                            color: #4f5bd5;
+                            border: 2px solid #4f5bd5;
+                            border-radius: 50px;
+                            padding: 7px 0;
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: background 0.2s, color 0.2s;
+                            text-align: center;
+                            text-decoration: none;
+                        }
+                        .pro-card .btn-view:hover {
+                            background: #4f5bd5;
+                            color: #fff;
+                        }
+                        .pro-card .btn-book {
+                            flex: 1;
+                            background: linear-gradient(135deg, #4f5bd5 0%, #7c3aed 100%);
+                            color: #fff;
+                            border: none;
+                            border-radius: 50px;
+                            padding: 7px 0;
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: opacity 0.2s, transform 0.2s;
+                            text-align: center;
+                            text-decoration: none;
+                        }
+                        .pro-card .btn-book:hover {
+                            opacity: 0.88;
+                            transform: scale(1.03);
+                        }
+                        .pro-datalist-wrap {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 0;
+                        }
+                    </style>
 
-                        <!-- Worker Card 2 -->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
-                                <div class="d-flex align-items-center mb-4">
-                                    <img src="https://randomuser.me/api/portraits/men/44.jpg" class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm" width="80" height="80" alt="Worker">
-                                    <div>
-                                        <h5 class="fw-bold mb-1 d-flex align-items-center">Amit Sharma <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
-                                        <span class="badge bg-info-subtle text-info border border-info-subtle">Plumber</span>
-                                    </div>
-                                </div>
-                                <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
-                                    <div class="col-4 border-end border-secondary-subtle">
-                                        <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.9</div>
-                                        <div class="small text-muted">Rating</div>
-                                    </div>
-                                    <div class="col-4 border-end border-secondary-subtle">
-                                        <div class="fw-bold fs-5 text-dark">512+</div>
-                                        <div class="small text-muted">Jobs</div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="fw-bold fs-5 text-dark">8 Yrs</div>
-                                        <div class="small text-muted">Exp</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
-                                    <i class="bi bi-geo-alt-fill text-danger me-2"></i> Rajkot City
-                                    <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 199</span>
-                                </div>
-                                <div class="d-flex gap-2 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                    <button class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Worker Card 3 -->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
-                                <div class="d-flex align-items-center mb-4">
-                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm" width="80" height="80" alt="Worker">
-                                    <div>
-                                        <h5 class="fw-bold mb-1 d-flex align-items-center">Sneha Desai <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
-                                        <span class="badge bg-success-subtle text-success border border-success-subtle">Cleaner</span>
-                                    </div>
-                                </div>
-                                <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
-                                    <div class="col-4 border-end border-secondary-subtle">
-                                        <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.7</div>
-                                        <div class="small text-muted">Rating</div>
-                                    </div>
-                                    <div class="col-4 border-end border-secondary-subtle">
-                                        <div class="fw-bold fs-5 text-dark">240+</div>
-                                        <div class="small text-muted">Jobs</div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="fw-bold fs-5 text-dark">3 Yrs</div>
-                                        <div class="small text-muted">Exp</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
-                                    <i class="bi bi-geo-alt-fill text-danger me-2"></i> 150ft Ring Road
-                                    <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 499</span>
-                                </div>
-                                <div class="d-flex gap-2 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                    <button class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</button>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="pro-datalist-wrap">
+<asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatDirection="Horizontal" CssClass="pro-datalist-wrap">
+    <ItemTemplate>
+        <div class="pro-card">
+            <div class="pro-img-wrap">
+                <asp:Image ID="Image1" runat="server"
+                    ImageUrl='<%# Eval("pic") %>'
+                    CssClass="pro-img"
+                    AlternateText="Professional Photo" />
+            </div>
+            <div class="pro-name">
+                <asp:Label ID="Label1" runat="server" Text='<%# Eval("fname") %>'></asp:Label>
+                &nbsp;<asp:Label ID="Label2" runat="server" Text='<%# Eval("lname") %>'></asp:Label>
+            </div>
+            <div style="text-align:center; margin-bottom:10px;">
+                <span class="pro-badge">
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("service") %>'></asp:Label>
+                </span>
+            </div>
+            <div class="pro-info-row">
+                <i class="bi bi-briefcase-fill pi-icon"></i>
+                <span>Experience:&nbsp;<strong><asp:Label ID="Label4" runat="server" Text='<%# Eval("experience") %>'></asp:Label> yrs</strong></span>
+            </div>
+            <hr class="pro-divider" />
+            <div class="pro-actions">
+                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn-view" CommandName="cmd_view_profile" CommandArgument='<%# Eval("Id") %>' Text="View Profile"></asp:LinkButton>
+                <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn-book" CommandName="cmd_book_now">Book Now</asp:LinkButton>
+            </div>
+        </div>
+    </ItemTemplate>
+</asp:DataList>
                     </div>
+
+                       
 
                     <!-- Pagination -->
                     <nav aria-label="Page navigation" class="mt-5">
@@ -210,7 +261,7 @@
                             <li class="page-item disabled">
                                 <a class="page-link rounded-circle border-0 text-dark shadow-sm" href="#" tabindex="-1" aria-disabled="true"><i class="bi bi-chevron-left"></i></a>
                             </li>
-                            <li class="page-item"><a class="page-link rounded-circle border-0 text-white bg-primary shadow-sm active" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link rounded-circle border-0 text-white bg-primary shadow-sm active" href="#">1#">1</a></li>
                             <li class="page-item"><a class="page-link rounded-circle border-0 text-dark shadow-sm hover-primary" href="#">2</a></li>
                             <li class="page-item"><a class="page-link rounded-circle border-0 text-dark shadow-sm hover-primary" href="#">3</a></li>
                             <li class="page-item">
