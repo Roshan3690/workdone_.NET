@@ -112,7 +112,7 @@
                                 <li><a class="dropdown-item rounded-2 py-2" href="AdminUsers.aspx"><i class="bi bi-people me-2 text-primary"></i>Customers</a></li>
                                 <li><a class="dropdown-item rounded-2 py-2" href="AdminWorkers.aspx"><i class="bi bi-person-badge me-2 text-primary"></i>Professionals</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item rounded-2 py-2 text-danger" href="AdminLogin.aspx"><i class="bi bi-box-arrow-right me-2"></i>Sign Out</a></li>
+                                <li><a class="dropdown-item rounded-2 py-2 text-danger" href="Login.aspx"><i class="bi bi-box-arrow-right me-2"></i>Sign Out</a></li>
                             </ul>
                         </div>
                     </div>
