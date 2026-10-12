@@ -18,7 +18,7 @@
         <div class="container py-4">
             <div class="row g-4">
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Home+Cleaning" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-primary-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-house-heart text-primary fs-2"></i>
                         </div>
@@ -27,7 +27,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Plumbing" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-info-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-droplet text-info fs-2"></i>
                         </div>
@@ -36,7 +36,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Electrician" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-warning-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-lightning-charge text-warning fs-2"></i>
                         </div>
@@ -45,7 +45,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=AC+Repair" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-danger-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-snow text-danger fs-2"></i>
                         </div>
@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Carpentry" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-success-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-hammer text-success fs-2"></i>
                         </div>
@@ -63,7 +63,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Painting" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-secondary-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-brush text-secondary fs-2"></i>
                         </div>
@@ -72,7 +72,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Beauty+%26+Salon" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-pink-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-scissors text-pink fs-2" style="color: #d63384;"></i>
                         </div>
@@ -81,7 +81,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
+                    <a href="Professionals.aspx?service=Vehicle+Repair" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4 hover-scale">
                         <div class="icon-wrapper bg-dark-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                             <i class="bi bi-car-front text-dark fs-2"></i>
                         </div>

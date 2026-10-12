@@ -16,11 +16,13 @@ namespace workdone.Admin
 
         string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
-            fillgride();
+            if (!IsPostBack)
+            {
+                fillgride();
+            }
         }
 
         void getcon()
@@ -28,6 +30,7 @@ namespace workdone.Admin
             con = new SqlConnection(s);
             con.Open();
         }
+
         void fillgride()
         {
             getcon();
@@ -37,31 +40,67 @@ namespace workdone.Admin
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+
+            lblTotalCustomers.Text = ds.Tables[0].Rows.Count.ToString();
+            lblTotalBadge.Text = "Total: " + ds.Tables[0].Rows.Count + " Customers";
+
+            int maleCount = 0;
+            int femaleCount = 0;
+            foreach (DataRow r in ds.Tables[0].Rows)
+            {
+                string g = r["gender"] != null ? r["gender"].ToString().Trim() : "";
+                if (string.Equals(g, "Male", StringComparison.OrdinalIgnoreCase)) maleCount++;
+                else if (string.Equals(g, "Female", StringComparison.OrdinalIgnoreCase)) femaleCount++;
+            }
+            lblMaleCount.Text = maleCount.ToString();
+            lblFemaleCount.Text = femaleCount.ToString();
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnSearchCustomer_Click(object sender, EventArgs e)
         {
+            getcon();
+            string q = "SELECT * FROM customerTBL WHERE 1=1";
 
-        }
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                q += " AND (fname LIKE '%" + txtSearch.Text.Trim() + "%' OR lname LIKE '%" + txtSearch.Text.Trim() + "%' OR email LIKE '%" + txtSearch.Text.Trim() + "%' OR phone LIKE '%" + txtSearch.Text.Trim() + "%')";
+            }
 
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
+            if (ddlGenderFilter.SelectedValue != "all" && !string.IsNullOrEmpty(ddlGenderFilter.SelectedValue))
+            {
+                q += " AND gender = '" + ddlGenderFilter.SelectedValue + "'";
+            }
 
+            da = new SqlDataAdapter(q, con);
+            ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+
+            lblTotalCustomers.Text = ds.Tables[0].Rows.Count.ToString();
+            lblTotalBadge.Text = "Total: " + ds.Tables[0].Rows.Count + " Customers";
+
+            int maleCount = 0;
+            int femaleCount = 0;
+            foreach (DataRow r in ds.Tables[0].Rows)
+            {
+                string g = r["gender"] != null ? r["gender"].ToString().Trim() : "";
+                if (string.Equals(g, "Male", StringComparison.OrdinalIgnoreCase)) maleCount++;
+                else if (string.Equals(g, "Female", StringComparison.OrdinalIgnoreCase)) femaleCount++;
+            }
+            lblMaleCount.Text = maleCount.ToString();
+            lblFemaleCount.Text = femaleCount.ToString();
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "cmd_edt")
+            if (e.CommandName == "cmd_dlt")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
-
-                ViewState["id"] = id;
-
-                //Button1.Text = "Update";
-
-                //filldata();
+                getcon();
+                cmd = new SqlCommand("DELETE FROM customerTBL WHERE Id = '" + e.CommandArgument + "'", con);
+                cmd.ExecuteNonQuery();
+                fillgride();
             }
         }
-
     }
 }

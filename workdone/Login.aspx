@@ -19,26 +19,23 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label for="txtEmail" class="form-label fw-medium small">Email Address</label>
-                            <br />
-&nbsp;<asp:TextBox ID="txtemail" runat="server" Width="266px"></asp:TextBox>
+                            <label for="txtemail" class="form-label fw-medium small">Email Address</label>
+                            <asp:TextBox ID="txtemail" runat="server" CssClass="form-control" placeholder="Enter your email"></asp:TextBox>
                         </div>
                         
                         <div class="mb-3">
-                            
-                                <label for="txtPassword" class="form-label fw-medium small mb-0">Password</label>
-                                <br />
-                                &nbsp;<asp:TextBox ID="txtpass" runat="server" Width="273px"></asp:TextBox>
-                            </div>
-                            <%--&nbsp;</div>--%>
+                            <label for="txtpass" class="form-label fw-medium small mb-0">Password</label>
+                            <asp:TextBox ID="txtpass" runat="server" TextMode="Password" CssClass="form-control" placeholder="Enter your password"></asp:TextBox>
+                        </div>
                         
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="chkRemember">
                             <label class="form-check-label small text-muted" for="chkRemember">Remember me for 30 days</label>
-                            <br />
-                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Login" />
                         </div>
                         
+                        <div class="mb-4">
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Login" CssClass="btn btn-primary w-100 shadow-sm hover-scale" />
+                        </div>
                         <div class="text-center mt-3 border-top pt-4">
                             <p class="text-muted small mb-0">
                                 <a href="#" class="text-decoration-none small text-primary fw-medium">Forgot Password?</a></p>

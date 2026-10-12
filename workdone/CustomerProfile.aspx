@@ -193,7 +193,7 @@
                         <hr class="my-3 text-secondary opacity-25">
 
                         <div class="d-grid gap-2">
-                            <asp:LinkButton ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-outline-danger rounded-3 py-2 fw-medium d-flex align-items-center justify-content-center gap-2" />
+                            <asp:LinkButton ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger rounded-3 py-2 fw-medium d-flex align-items-center justify-content-center gap-2" />
                         </div>
 
                         <div class="bg-primary-subtle rounded-3 p-3 mt-4 text-center">
@@ -305,7 +305,7 @@
                                     </div>
                                     <div class="d-flex gap-2">
                                         <button type="reset" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-medium">Reset</button>
-                                        <asp:Button ID="btnUpdateProfile" runat="server" Text="Save Changes" CssClass="btn btn-primary rounded-pill px-4 py-2 fw-medium shadow-sm hover-scale" />
+                                        <asp:Button ID="btnUpdateProfile" runat="server" Text="Save Changes" OnClick="btnUpdateProfile_Click" CssClass="btn btn-primary rounded-pill px-4 py-2 fw-medium shadow-sm hover-scale" />
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-end pt-3 border-top">
-                                    <asp:Button ID="btnChangePassword" runat="server" Text="Update Password" class="btn btn-primary rounded-pill px-4 py-2 fw-medium shadow-sm hover-scale" />s
+                                    <asp:Button ID="btnChangePassword" runat="server" Text="Update Password" OnClick="btnChangePassword_Click" CssClass="btn btn-primary rounded-pill px-4 py-2 fw-medium shadow-sm hover-scale" />
                                 </div>
                             </div>
                         </div>

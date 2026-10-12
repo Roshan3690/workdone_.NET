@@ -36,8 +36,15 @@ namespace workdone
 
         void imgupload()
         {
-            fnm = "image/" + FileUpload1.FileName;
-            FileUpload1.SaveAs(Server.MapPath(fnm));
+            if (FileUpload1.HasFile)
+            {
+                fnm = "image/" + FileUpload1.FileName;
+                FileUpload1.SaveAs(Server.MapPath(fnm));
+            }
+            else
+            {
+                fnm = "image/images.jpg";
+            }
         }
         void fillgride()
         {

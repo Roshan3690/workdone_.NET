@@ -667,7 +667,132 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     flex-shrink: 0;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
+
+.worker-img-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #E2E8F0;
+    flex-shrink: 0;
+    transition: var(--admin-transition);
+}
+
+.worker-img-thumb:hover {
+    transform: scale(1.1);
+    border-color: var(--admin-primary);
+}
+
+/* ==========================================================================
+   Admin GridView & Table Design System
+   ========================================================================== */
+
+.table-responsive {
+    border-radius: 0 0 var(--admin-radius-lg) var(--admin-radius-lg);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+.admin-gridview {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    font-size: 0.885rem;
+    color: var(--admin-text-main);
+    margin-bottom: 0 !important;
+    border: none !important;
+}
+
+.admin-gridview thead th,
+.admin-gridview th,
+.admin-grid-header th {
+    background: #F8FAFC !important;
+    color: var(--admin-text-muted) !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    padding: 1.1rem 1.25rem !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
+.admin-gridview tbody td,
+.admin-gridview td,
+.admin-grid-row td,
+.admin-grid-alt-row td {
+    padding: 1rem 1.25rem !important;
+    vertical-align: middle !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(241, 245, 249, 1) !important;
+    background-color: transparent !important;
+    transition: background-color 0.2s ease;
+}
+
+.admin-gridview tr {
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-gridview tr:hover td {
+    background-color: rgba(248, 250, 252, 0.9) !important;
+}
+
+.admin-gridview tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Hover primary links */
+.hover-primary {
+    transition: color 0.2s ease;
+}
+
+.hover-primary:hover {
+    color: var(--admin-primary) !important;
+}
+
+/* Admin Action Buttons */
+.btn-grid-delete {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 50rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: var(--admin-transition);
+}
+
+.btn-grid-delete:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.2);
+}
+

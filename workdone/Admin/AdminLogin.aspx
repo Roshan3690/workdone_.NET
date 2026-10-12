@@ -50,6 +50,8 @@
                         <div class="d-flex align-items-start gap-2">
                             <i class="bi bi-key-fill text-primary fs-5 mt-1"></i>
                             <div>
+                                <span class="fw-semibold text-primary d-block small">Administrative Demo Access</span>
+                                <span class="small text-muted">Email: <code>admin@workdone.com</code> | Password: <code>admin123</code></span>
                             </div>
                         </div>
                     </div>
@@ -78,9 +80,10 @@
                         <a href="AdminUsers.aspx" class="text-decoration-none small text-primary fw-semibold">Direct Access &rarr;</a>
                     </div>
 
-                    <a href="AdminUsers.aspx" class="btn btn-admin-primary w-100 py-2 justify-content-center shadow-sm">
-                        <i class="bi bi-box-arrow-in-right me-1"></i> Sign In to Portal
-                    </a>
+                    <asp:Button ID="btnAdminLogin" runat="server" Text="Sign In to Portal" OnClick="btnAdminLogin_Click" CssClass="btn btn-admin-primary w-100 py-2 justify-content-center shadow-sm" />
+                    <div class="mt-2 text-center">
+                        <asp:Label ID="lblAdminError" runat="server" CssClass="text-danger small" Visible="false"></asp:Label>
+                    </div>
 
                     <div class="text-center mt-4 pt-3 border-top">
                         <a href="../Default.aspx" class="text-decoration-none text-muted small hover-primary">

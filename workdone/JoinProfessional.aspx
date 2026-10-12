@@ -45,7 +45,7 @@
                             <p class="text-muted">Transparent pricing and instant payouts for your hard work.</p>
                         </div>
                     </div>
-                    
+
                     <div class="bg-white p-4 rounded-4 shadow-sm mt-5 border">
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle border border-2 border-primary" width="50" height="50" alt="Pro">
@@ -133,32 +133,37 @@
                             <asp:TextBox ID="txtProfessionalAddress" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter your full address"></asp:TextBox>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="FileUpload1" class="form-label fw-medium small">Profile Picture</label>
+                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
+                        </div>
+                        
                         <div class="row g-3 mb-3">
-                            <div class="col-sm-6">
-                                <label for="fileProfessionalPic" class="form-label fw-medium small">Profile Picture</label>
-                                <asp:FileUpload ID="FileUpload1" runat="server" />
                             <div class="col-sm-6">
                                 <label for="txtProfessionalAadhaarId" class="form-label fw-medium small">Aadhaar ID</label>
                                 <asp:TextBox ID="txtProfessionalAadhaarId" runat="server" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter Aadhaar number"></asp:TextBox>
                             </div>
+                            <div class="col-sm-6">
+                                <label for="txtprof_pass" class="form-label fw-medium small">Password</label>
+                                <asp:TextBox ID="txtprof_pass" runat="server" TextMode="Password" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Enter Password"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="chkProTerms">
                             <label class="form-check-label small text-muted" for="chkProTerms">I agree to the <a href="#" class="text-primary text-decoration-none">Professional Terms & Conditions</a></label>
-                            <br />
-                            <asp:Button ID="Button1" runat="server" Text="Submit Application" CssClass="btn btn-primary w-100 rounded-pill py-2 fw-medium mb-3 shadow-sm hover-scale" OnClick="Button1_Click" />
-                            <center>
-                                <asp:Label ID="Label1" runat="server" Style="color: red"></asp:Label>
-                            </center>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <asp:Button ID="Button1" runat="server" Text="Submit Application" CssClass="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow-sm hover-scale" OnClick="Button1_Click" />
+                        </div>
+                        
+                        <div class="text-center my-3">
+                            <asp:Label ID="Label1" runat="server" CssClass="text-danger fw-bold small"></asp:Label>
                         </div>
 
                         <div class="text-center mt-3">
                             <p class="text-muted small mb-0">Already registered as a pro? <a href="Login.aspx" class="text-decoration-none fw-bold text-primary">Log In</a></p>
-                            <p class="text-muted small mb-0">
-                               
-                            </p>
                         </div>
                     </div>
                 </div>

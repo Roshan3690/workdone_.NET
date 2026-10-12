@@ -1,16 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Policy;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
-
 
 namespace workdone
 {
@@ -21,61 +14,101 @@ namespace workdone
         SqlDataAdapter da;//For Container
         DataSet ds;//For Select
 
-        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            getcon();
-            if (Session["customer"] != null)
-            {
-                getcon();
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;//For Connection String
 
-                da = new SqlDataAdapter("select * from customerTBL where email = '" + Session["customer"] + "'", con);
-                ds = new DataSet();
-                da.Fill(ds);
-
-                filldatalist();
-
-            }
-            else
-            {
-                Response.Redirect("Login.aspx");
-            }
-            
-        }
         void getcon()
         {
             con = new SqlConnection(s);
             con.Open();
         }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            getcon();
+            if (!IsPostBack)
+            {
+                filldatalist();
+            }
+        }
+
         void filldatalist()
         {
-            da = new SqlDataAdapter("select * from profesonalTBL", con);
-            ds = new DataSet();
-            da.Fill(ds);
-            DataList1.DataSource = ds;
-            DataList1.DataBind();
-        }
-
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DataList1_ItemCommand(object source, System.Web.UI.WebControls.DataListCommandEventArgs e)
-        {
-            if (e.CommandName == "cmd_view_profile")
+            getcon();
+            string query = "select * from profesonalTBL";
+            if (Request.QueryString["service"] != null && !string.IsNullOrEmpty(Request.QueryString["service"]))
             {
-                int pro_id = Convert.ToInt16(e.CommandArgument);
-                ViewState["pid"] = pro_id;
-                Response.Redirect("ProfessionalProfile.aspx?pro_id=" + ViewState["pro_id"]);
+                query = "select * from profesonalTBL where service = '" + Request.QueryString["service"] + "'";
             }
 
+            da = new SqlDataAdapter(query, con);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            lblCount.Text = ds.Tables[0].Rows.Count.ToString();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                lblNoData.Visible = false;
+                DataList1.Visible = true;
+                DataList1.DataSource = ds;
+                DataList1.DataBind();
+            }
+            else
+            {
+                lblNoData.Visible = true;
+                DataList1.Visible = false;
+            }
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
+            getcon();
+            string query = "select * from profesonalTBL where 1=1";
 
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                query += " and (fname like '%" + txtSearch.Text.Trim() + "%' or lname like '%" + txtSearch.Text.Trim() + "%' or service like '%" + txtSearch.Text.Trim() + "%')";
+            }
+
+            if (!string.IsNullOrEmpty(ddlCity.SelectedValue))
+            {
+                query += " and city = '" + ddlCity.SelectedValue + "'";
+            }
+
+            da = new SqlDataAdapter(query, con);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            lblCount.Text = ds.Tables[0].Rows.Count.ToString();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                lblNoData.Visible = false;
+                DataList1.Visible = true;
+                DataList1.DataSource = ds;
+                DataList1.DataBind();
+            }
+            else
+            {
+                lblNoData.Visible = true;
+                DataList1.Visible = false;
+            }
+        }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "cmd_book")
+            {
+                if (Session["customer"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    int id = Convert.ToInt32(e.CommandArgument);
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Booking request sent successfully to professional! They will contact you shortly.');", true);
+                }
+            }
         }
     }
 }

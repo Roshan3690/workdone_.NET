@@ -70,6 +70,7 @@
     <Content Include="AdminContent\css\admin.css" />
     <Content Include="AdminContent\images\readme.txt" />
     <Content Include="AdminContent\js\admin.js" />
+    <Content Include="Admin\AdminLogin.aspx" />
     <Content Include="Admin\AdminUsers.aspx" />
     <Content Include="Admin\AdminWorkers.aspx" />
     <Content Include="App_Data\workdoneDB.mdf" />
@@ -97,6 +98,13 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminUsers.aspx.cs">
       <DependentUpon>AdminUsers.aspx</DependentUpon>
