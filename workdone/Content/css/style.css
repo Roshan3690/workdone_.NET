@@ -351,3 +351,80 @@ p {
 html {
     scroll-behavior: smooth;
 }
+
+/* =========================================================================
+   PROFESSIONALS PAGE 3-CARD GRID SYSTEM
+   ========================================================================= */
+.professionals-grid-container,
+#MainContent_DataList1,
+[id$="DataList1"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.75rem !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Force direct children of DataList (spans, divs, items) to act as flex column grid cells */
+.professionals-grid-container > *,
+#MainContent_DataList1 > *,
+[id$="DataList1"] > * {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+}
+
+.professionals-grid-container .worker-card-col,
+#MainContent_DataList1 .worker-card-col,
+[id$="DataList1"] .worker-card-col {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.professionals-grid-container .worker-card,
+#MainContent_DataList1 .worker-card,
+[id$="DataList1"] .worker-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    width: 100% !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: var(--shadow-soft) !important;
+    background: var(--bg-surface) !important;
+    transition: var(--transition) !important;
+    overflow: hidden;
+}
+
+.professionals-grid-container .worker-card:hover,
+#MainContent_DataList1 .worker-card:hover,
+[id$="DataList1"] .worker-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 35px -8px rgba(67, 56, 202, 0.16) !important;
+    border-color: rgba(99, 102, 241, 0.35) !important;
+}
+
+/* Tablet view: 2 cards per row */
+@media (max-width: 1199.98px) {
+    .professionals-grid-container,
+    #MainContent_DataList1,
+    [id$="DataList1"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.25rem !important;
+    }
+}
+
+/* Mobile view: 1 card per row */
+@media (max-width: 767.98px) {
+    .professionals-grid-container,
+    #MainContent_DataList1,
+    [id$="DataList1"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+

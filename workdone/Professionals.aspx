@@ -4,6 +4,74 @@
     Find Professionals - WorkDone
 </asp:Content>
 
+<asp:Content ID="ContentHead" ContentPlaceHolderID="HeadContent" runat="server">
+    <style>
+        .professionals-grid-container,
+        #MainContent_DataList1,
+        [id$="DataList1"] {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 1.75rem !important;
+            width: 100% !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .professionals-grid-container > *,
+        #MainContent_DataList1 > *,
+        [id$="DataList1"] > * {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+            min-width: 0 !important;
+            width: 100% !important;
+        }
+
+        .worker-card-col {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        .worker-card {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+            width: 100% !important;
+            border-radius: var(--radius-lg, 20px) !important;
+            border: 1px solid rgba(226, 232, 240, 0.8) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+            background: #fff !important;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            overflow: hidden;
+        }
+
+        .worker-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 20px 35px -8px rgba(67, 56, 202, 0.16) !important;
+            border-color: rgba(99, 102, 241, 0.4) !important;
+        }
+
+        @media (max-width: 1199.98px) {
+            .professionals-grid-container,
+            #MainContent_DataList1,
+            [id$="DataList1"] {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 1.25rem !important;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .professionals-grid-container,
+            #MainContent_DataList1,
+            [id$="DataList1"] {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <!-- SEARCH SECTION -->
     <section class="bg-light py-5 border-bottom">
@@ -15,17 +83,19 @@
                     <div class="search-box bg-white rounded-pill shadow-sm p-2 d-flex flex-column flex-md-row align-items-center">
                         <div class="input-group search-input border-end-md pe-md-2 mb-2 mb-md-0">
                             <span class="input-group-text bg-transparent border-0 text-muted ps-3"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control border-0 shadow-none ps-2" placeholder="Search by name, service, or keyword...">
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control border-0 shadow-none ps-2" placeholder="Search by name, service, or keyword..."></asp:TextBox>
                         </div>
                         <div class="input-group location-input px-md-2 mb-2 mb-md-0 border-end-md">
                             <span class="input-group-text bg-transparent border-0 text-danger"><i class="bi bi-geo-alt-fill"></i></span>
-                            <select class="form-select border-0 shadow-none text-muted">
-                                <option selected>Rajkot</option>
-                                <option value="1">Ahmedabad</option>
-                                <option value="2">Surat</option>
-                            </select>
+                            <asp:DropDownList ID="ddlCity" runat="server" CssClass="form-select border-0 shadow-none text-muted">
+                                <asp:ListItem Text="All Cities" Value=""></asp:ListItem>
+                                <asp:ListItem Text="Rajkot" Value="Rajkot" Selected="True"></asp:ListItem>
+                                <asp:ListItem Text="Ahmedabad" Value="Ahmedabad"></asp:ListItem>
+                                <asp:ListItem Text="Surat" Value="Surat"></asp:ListItem>
+                                <asp:ListItem Text="Vadodara" Value="Vadodara"></asp:ListItem>
+                            </asp:DropDownList>
                         </div>
-                        <button class="btn btn-primary rounded-pill px-4 py-2 w-100 w-md-auto ms-md-2 fw-medium text-nowrap">Search</button>
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="btn btn-primary rounded-pill px-4 py-2 w-100 w-md-auto ms-md-2 fw-medium text-nowrap" />
                     </div>
                 </div>
             </div>
@@ -43,217 +113,96 @@
                         
                         <div class="mb-4">
                             <h6 class="fw-bold mb-3 small text-muted text-uppercase tracking-wider">Service Category</h6>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="" id="catPlumbing" checked>
-                                <label class="form-check-label" for="catPlumbing">Plumbing (45)</label>
+                            <div class="d-flex flex-column gap-2">
+                                <a href="Professionals.aspx" class="text-decoration-none text-dark py-1 px-2 rounded-2 hover-bg <%= string.IsNullOrEmpty(Request.QueryString["service"]) ? "bg-primary-subtle text-primary fw-bold" : "" %>">
+                                    <i class="bi bi-grid-fill me-2 text-primary"></i>All Services
+                                </a>
+                                <a href="Professionals.aspx?service=Plumbing" class="text-decoration-none text-dark py-1 px-2 rounded-2 hover-bg <%= Request.QueryString["service"] == "Plumbing" ? "bg-primary-subtle text-primary fw-bold" : "" %>">
+                                    <i class="bi bi-droplet-fill me-2 text-info"></i>Plumbing
+                                </a>
+                                <a href="Professionals.aspx?service=Home+Cleaning" class="text-decoration-none text-dark py-1 px-2 rounded-2 hover-bg <%= Request.QueryString["service"] == "Home Cleaning" ? "bg-primary-subtle text-primary fw-bold" : "" %>">
+                                    <i class="bi bi-house-heart-fill me-2 text-success"></i>Home Cleaning
+                                </a>
+                                <a href="Professionals.aspx?service=Electrician" class="text-decoration-none text-dark py-1 px-2 rounded-2 hover-bg <%= Request.QueryString["service"] == "Electrician" ? "bg-primary-subtle text-primary fw-bold" : "" %>">
+                                    <i class="bi bi-lightning-charge-fill me-2 text-warning"></i>Electrician
+                                </a>
+                                <a href="Professionals.aspx?service=AC+Repair" class="text-decoration-none text-dark py-1 px-2 rounded-2 hover-bg <%= Request.QueryString["service"] == "AC Repair" ? "bg-primary-subtle text-primary fw-bold" : "" %>">
+                                    <i class="bi bi-snow me-2 text-info"></i>AC Repair
+                                </a>
+                                <a href="Professionals.aspx?service=Carpentry" class="text-decoration-none text-dark py-1 px-2 rounded-2 hover-bg <%= Request.QueryString["service"] == "Carpentry" ? "bg-primary-subtle text-primary fw-bold" : "" %>">
+                                    <i class="bi bi-hammer me-2 text-danger"></i>Carpentry
+                                </a>
                             </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="" id="catCleaning">
-                                <label class="form-check-label" for="catCleaning">Home Cleaning (32)</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="" id="catElectrician">
-                                <label class="form-check-label" for="catElectrician">Electrician (58)</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" value="" id="catAC">
-                                <label class="form-check-label" for="catAC">AC Repair (27)</label>
-                            </div>
-                            <a href="#" class="text-decoration-none small text-primary fw-medium">View all categories</a>
                         </div>
                         
                         <div class="mb-4">
-                            <h6 class="fw-bold mb-3 small text-muted text-uppercase tracking-wider">Rating</h6>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="ratingRadio" id="rating4" checked>
-                                <label class="form-check-label" for="rating4">
-                                    <i class="bi bi-star-fill text-warning"></i> 4.0 & above
-                                </label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="ratingRadio" id="rating3">
-                                <label class="form-check-label" for="rating3">
-                                    <i class="bi bi-star-fill text-warning"></i> 3.0 & above
-                                </label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="ratingRadio" id="ratingAny">
-                                <label class="form-check-label" for="ratingAny">Any Rating</label>
-                            </div>
+                            <h6 class="fw-bold mb-3 small text-muted text-uppercase tracking-wider">Quick Information</h6>
+                            <p class="small text-muted mb-0">
+                                <i class="bi bi-shield-check text-success me-1"></i>All listed professionals are background-verified and locally available.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Results -->
                 <div class="col-lg-9">
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="fw-bold mb-0">Showing <span class="text-primary">124</span> professionals</h5>
-                        <select class="form-select w-auto border-0 shadow-sm rounded-pill px-3">
-                            <option selected>Sort by: Recommended</option>
-                            <option value="1">Rating: High to Low</option>
-                            <option value="2">Experience: High to Low</option>
-                            <option value="3">Price: Low to High</option>
-                        </select>
+                        <h5 class="fw-bold mb-0">Showing <asp:Label ID="lblCount" runat="server" CssClass="text-primary" Text="0"></asp:Label> professionals</h5>
                     </div>
 
-                    <style>
-                        .pro-card {
-                            background: #fff;
-                            border-radius: 18px;
-                            box-shadow: 0 4px 24px rgba(80,80,180,0.10);
-                            padding: 28px 22px 22px 22px;
-                            display: inline-block;
-                            width: 260px;
-                            margin: 12px;
-                            vertical-align: top;
-                            transition: box-shadow 0.25s, transform 0.25s;
-                            border: 1px solid #ececf5;
-                        }
-                        .pro-card:hover {
-                            box-shadow: 0 10px 36px rgba(80,80,180,0.18);
-                            transform: translateY(-4px);
-                        }
-                        .pro-card .pro-img-wrap {
-                            display: flex;
-                            justify-content: center;
-                            margin-bottom: 16px;
-                        }
-                        .pro-card .pro-img {
-                            width: 90px;
-                            height: 90px;
-                            border-radius: 50%;
-                            object-fit: cover;
-                            border: 3px solid #d0d8ff;
-                            box-shadow: 0 2px 10px rgba(80,80,180,0.15);
-                        }
-                        .pro-card .pro-name {
-                            font-size: 1.08rem;
-                            font-weight: 700;
-                            color: #1a1a2e;
-                            text-align: center;
-                            margin-bottom: 6px;
-                        }
-                        .pro-card .pro-badge {
-                            display: inline-block;
-                            background: #eef0ff;
-                            color: #4f5bd5;
-                            border: 1px solid #c7ccf7;
-                            border-radius: 20px;
-                            font-size: 0.78rem;
-                            font-weight: 600;
-                            padding: 2px 14px;
-                            margin-bottom: 12px;
-                        }
-                        .pro-card .pro-info-row {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            gap: 6px;
-                            font-size: 0.88rem;
-                            color: #555;
-                            margin-bottom: 6px;
-                        }
-                        .pro-card .pro-info-row .pi-icon {
-                            color: #4f5bd5;
-                            font-size: 1rem;
-                        }
-                        .pro-card .pro-divider {
-                            border: none;
-                            border-top: 1px solid #ececf5;
-                            margin: 14px 0;
-                        }
-                        .pro-card .pro-actions {
-                            display: flex;
-                            gap: 10px;
-                            margin-top: 6px;
-                        }
-                        .pro-card .btn-view {
-                            flex: 1;
-                            background: transparent;
-                            color: #4f5bd5;
-                            border: 2px solid #4f5bd5;
-                            border-radius: 50px;
-                            padding: 7px 0;
-                            font-size: 0.85rem;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: background 0.2s, color 0.2s;
-                            text-align: center;
-                            text-decoration: none;
-                        }
-                        .pro-card .btn-view:hover {
-                            background: #4f5bd5;
-                            color: #fff;
-                        }
-                        .pro-card .btn-book {
-                            flex: 1;
-                            background: linear-gradient(135deg, #4f5bd5 0%, #7c3aed 100%);
-                            color: #fff;
-                            border: none;
-                            border-radius: 50px;
-                            padding: 7px 0;
-                            font-size: 0.85rem;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: opacity 0.2s, transform 0.2s;
-                            text-align: center;
-                            text-decoration: none;
-                        }
-                        .pro-card .btn-book:hover {
-                            opacity: 0.88;
-                            transform: scale(1.03);
-                        }
-                        .pro-datalist-wrap {
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 0;
-                        }
-                    </style>
+                    <asp:Label ID="lblNoData" runat="server" Visible="false" CssClass="alert alert-light border border-secondary border-opacity-25 shadow-sm rounded-4 p-4 text-center d-block w-100 my-4 text-muted fw-medium" Text="No professionals found matching your search."></asp:Label>
 
-                    <div class="pro-datalist-wrap">
-<asp:DataList ID="DataList1" runat="server" OnItemCommand="DataList1_ItemCommand" RepeatDirection="Horizontal" CssClass="pro-datalist-wrap">
-    <ItemTemplate>
-        <div class="pro-card">
-            <div class="pro-img-wrap">
-                <asp:Image ID="Image1" runat="server"
-                    ImageUrl='<%# Eval("pic") %>'
-                    CssClass="pro-img"
-                    AlternateText="Professional Photo" />
-            </div>
-            <div class="pro-name">
-                <asp:Label ID="Label1" runat="server" Text='<%# Eval("fname") %>'></asp:Label>
-                &nbsp;<asp:Label ID="Label2" runat="server" Text='<%# Eval("lname") %>'></asp:Label>
-            </div>
-            <div style="text-align:center; margin-bottom:10px;">
-                <span class="pro-badge">
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("service") %>'></asp:Label>
-                </span>
-            </div>
-            <div class="pro-info-row">
-                <i class="bi bi-briefcase-fill pi-icon"></i>
-                <span>Experience:&nbsp;<strong><asp:Label ID="Label4" runat="server" Text='<%# Eval("experience") %>'></asp:Label> yrs</strong></span>
-            </div>
-            <hr class="pro-divider" />
-            <div class="pro-actions">
-                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn-view" CommandName="cmd_view_profile" CommandArgument='<%# Eval("Id") %>' Text="View Profile"></asp:LinkButton>
-                <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn-book" CommandName="cmd_book_now">Book Now</asp:LinkButton>
-            </div>
-        </div>
-    </ItemTemplate>
-</asp:DataList>
+                    <div class="professionals-results-container w-100">
+                        <asp:DataList ID="DataList1" runat="server" RepeatLayout="Flow" OnItemCommand="DataList1_ItemCommand" RepeatDirection="Horizontal" CssClass="professionals-grid-container">
+                            <ItemTemplate>
+                                <div class="worker-card-col">
+                                    <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src='<%# (Eval("pic") == null || string.IsNullOrEmpty(Eval("pic").ToString())) ? "https://randomuser.me/api/portraits/men/32.jpg" : Eval("pic") %>' class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm object-fit-cover flex-shrink-0" width="70" height="70" alt="Worker">
+                                            <div class="overflow-hidden">
+                                                <h5 class="fw-bold mb-1 d-flex align-items-center text-truncate">
+                                                    <%# Eval("fname") %> <%# Eval("lname") %>
+                                                    <i class="bi bi-patch-check-fill text-primary ms-1 fs-6 flex-shrink-0" title="Verified Professional"></i>
+                                                </h5>
+                                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle"><%# Eval("service") %></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row text-center mb-3 g-2 bg-light rounded-3 py-2 mx-0 border border-light-subtle">
+                                            <div class="col-4 border-end border-secondary-subtle">
+                                                <div class="fw-bold fs-6 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning me-1"></i>4.8</div>
+                                                <div class="small text-muted" style="font-size: 0.75rem;">Rating</div>
+                                            </div>
+                                            <div class="col-4 border-end border-secondary-subtle">
+                                                <div class="fw-bold fs-6 text-dark">120+</div>
+                                                <div class="small text-muted" style="font-size: 0.75rem;">Jobs</div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="fw-bold fs-6 text-dark"><%# Eval("experience") %> Yrs</div>
+                                                <div class="small text-muted" style="font-size: 0.75rem;">Exp</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex align-items-center justify-content-between text-muted small mb-3 pb-3 border-bottom">
+                                            <div class="d-flex align-items-center text-truncate me-2">
+                                                <i class="bi bi-geo-alt-fill text-danger me-1 flex-shrink-0"></i>
+                                                <span class="text-truncate fw-medium text-dark"><%# Eval("city") %></span>
+                                            </div>
+                                            <div class="fw-bold text-dark text-nowrap">
+                                                <i class="bi bi-telephone text-success me-1"></i><%# Eval("phone") %>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <asp:LinkButton ID="btnBook" runat="server" CommandName="cmd_book" CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-primary rounded-pill w-100 fw-medium shadow-sm py-2">
+                                                <i class="bi bi-calendar-check me-1"></i>Book Now
+                                            </asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
                     </div>
-
-                       
 
                     <!-- Pagination -->
                     <nav aria-label="Page navigation" class="mt-5">
@@ -261,7 +210,7 @@
                             <li class="page-item disabled">
                                 <a class="page-link rounded-circle border-0 text-dark shadow-sm" href="#" tabindex="-1" aria-disabled="true"><i class="bi bi-chevron-left"></i></a>
                             </li>
-                            <li class="page-item"><a class="page-link rounded-circle border-0 text-white bg-primary shadow-sm active" href="#">1#">1</a></li>
+                            <li class="page-item"><a class="page-link rounded-circle border-0 text-white bg-primary shadow-sm active" href="#">1</a></li>
                             <li class="page-item"><a class="page-link rounded-circle border-0 text-dark shadow-sm hover-primary" href="#">2</a></li>
                             <li class="page-item"><a class="page-link rounded-circle border-0 text-dark shadow-sm hover-primary" href="#">3</a></li>
                             <li class="page-item">
@@ -269,9 +218,6 @@
                             </li>
                         </ul>
                     </nav>
-                    <center>
-                    
-                        </center>
                 </div>
             </div>
         </div>
