@@ -70,11 +70,11 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <% if (IsProfessional) { %>
-                                        <li><a class="dropdown-item py-2 fw-medium" href="#"><i class="bi bi-person me-2 text-primary"></i>My Profile</a></li>
-                                        <li><a class="dropdown-item py-2 fw-medium" href="#"><i class="bi bi-briefcase me-2 text-primary"></i>My Jobs</a></li>
+                                        <li><a class="dropdown-item py-2 fw-medium" href="CustomerProfile.aspx"><i class="bi bi-person me-2 text-primary"></i>My Profile</a></li>
+                                        <li><a class="dropdown-item py-2 fw-medium" href="Professionals.aspx"><i class="bi bi-briefcase me-2 text-primary"></i>Find Professionals</a></li>
                                     <% } else { %>
                                         <li><a class="dropdown-item py-2 fw-medium" href="CustomerProfile.aspx"><i class="bi bi-person me-2 text-primary"></i>My Profile</a></li>
-                                        <li><a class="dropdown-item py-2 fw-medium" href="#"><i class="bi bi-calendar-check me-2 text-primary"></i>My Bookings</a></li>
+                                        <li><a class="dropdown-item py-2 fw-medium" href="CustomerProfile.aspx"><i class="bi bi-calendar-check me-2 text-primary"></i>My Bookings</a></li>
                                     <% } %>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>

@@ -78,7 +78,7 @@
                 <div class="row g-4">
                     <!-- Categories -->
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Home+Cleaning" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-primary-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-house-heart text-primary fs-3"></i>
                             </div>
@@ -86,7 +86,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Plumbing" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-info-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-droplet text-info fs-3"></i>
                             </div>
@@ -94,7 +94,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Electrician" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-warning-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-lightning-charge text-warning fs-3"></i>
                             </div>
@@ -102,7 +102,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=AC+Repair" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-danger-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-snow text-danger fs-3"></i>
                             </div>
@@ -110,7 +110,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Carpentry" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-success-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-hammer text-success fs-3"></i>
                             </div>
@@ -118,7 +118,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Painting" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-secondary-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-brush text-secondary fs-3"></i>
                             </div>
@@ -126,7 +126,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Beauty+%26+Salon" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-pink-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-scissors text-pink fs-3" style="color: #d63384;"></i>
                             </div>
@@ -134,7 +134,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-lg-3">
-                        <a href="#" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
+                        <a href="Professionals.aspx?service=Vehicle+Repair" class="card category-card border-0 shadow-sm h-100 text-decoration-none text-center p-4 rounded-4">
                             <div class="icon-wrapper bg-dark-subtle rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-car-front text-dark fs-3"></i>
                             </div>
@@ -169,7 +169,7 @@
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
                                         <span class="fw-bold text-dark fs-5">Rs. 299</span>
                                     </div>
-                                    <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
+                                    <a href="Professionals.aspx?service=Plumbing" class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
                                         <span class="fw-bold text-dark fs-5">Rs. 999</span>
                                     </div>
-                                    <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
+                                    <a href="Professionals.aspx?service=Home+Cleaning" class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
                                         <span class="fw-bold text-dark fs-5">Rs. 499</span>
                                     </div>
-                                    <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
+                                    <a href="Professionals.aspx?service=AC+Repair" class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -229,7 +229,7 @@
                                         <small class="text-muted d-block lh-1 mb-1">Starts from</small>
                                         <span class="fw-bold text-dark fs-5">Rs. 199</span>
                                     </div>
-                                    <button class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</button>
+                                    <a href="Professionals.aspx?service=Electrician" class="btn btn-outline-primary rounded-pill px-3 py-1 btn-sm fw-medium hover-primary">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -318,8 +318,8 @@
                                 <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 299</span>
                             </div>
                             <div class="d-flex gap-2 mt-auto">
-                                <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                <button class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</button>
+                                <a href="Professionals.aspx" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
+                                <a href="Professionals.aspx" class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -353,8 +353,8 @@
                                 <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 199</span>
                             </div>
                             <div class="d-flex gap-2 mt-auto">
-                                <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                <button class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</button>
+                                <a href="Professionals.aspx" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
+                                <a href="Professionals.aspx" class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -388,15 +388,15 @@
                                 <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 499</span>
                             </div>
                             <div class="d-flex gap-2 mt-auto">
-                                <a href="#" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                <button class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</button>
+                                <a href="Professionals.aspx" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
+                                <a href="Professionals.aspx" class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="text-center mt-5">
-                    <a href="#" class="btn btn-outline-dark rounded-pill px-4 py-2 fw-medium">Browse All Professionals</a>
+                    <a href="Professionals.aspx" class="btn btn-outline-dark rounded-pill px-4 py-2 fw-medium">Browse All Professionals</a>
                 </div>
             </div>
         </section>

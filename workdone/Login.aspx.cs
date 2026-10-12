@@ -1,10 +1,14 @@
 using System;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Security.Policy;
-using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
+//New Namespace
+using System.Data.SqlClient;//For Connection
+using System.Data;//For Dataset
+using System.Configuration;//For Connection String
 
 namespace workdone
 {
@@ -14,9 +18,11 @@ namespace workdone
         SqlCommand cmd;//For insert, update, delete
         SqlDataAdapter da;//For Container
         DataSet ds;//For Select
-        int i;
+        int userlog;
+        int proflog;
 
-        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
+        string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;//For Connection String
+
         void getcon()
         {
             con = new SqlConnection(s);
@@ -27,29 +33,35 @@ namespace workdone
         {
             getcon();
         }
-     
-        //Save
 
         protected void Button1_Click1(object sender, EventArgs e)
         {
-            if (!(string.IsNullOrEmpty(txtemail.Text) || string.IsNullOrEmpty(txtpass.Text)))
+            if (!(string.IsNullOrEmpty(txtemail.Text)) && !(string.IsNullOrEmpty(txtpass.Text)))
             {
                 getcon();
-                cmd = new SqlCommand("SELECT * FROM customerTBL WHERE email = '" + txtemail.Text + "' AND pass = '" + txtpass.Text + "'", con);
-                i = Convert.ToInt16(cmd.ExecuteScalar());
 
-                if (i > 0)
+                if (txtemail.Text == "admin@asp.net" && txtpass.Text == "admin1234")
                 {
-                    if (txtemail.Text == "admin@asp.net" && txtpass.Text == "admin1234")
-                    {
-                        Response.Redirect("Admin/AdminUsers.aspx");
-                    }
-                    else
-                    {
-                        Session["customer"] = txtemail.Text;
-                        Response.Redirect("CustomerProfile.aspx");
-                        Label1.Text = Session["customer"].ToString();
-                    }
+                    Session["admin"] = txtemail.Text;
+                    Response.Redirect("Admin/AdminUsers.aspx");
+                    return;
+                }
+
+                cmd = new SqlCommand("select count(*) from customerTBL where email = '" + txtemail.Text + "' and pass = '" + txtpass.Text + "'", con);
+                userlog = Convert.ToInt16(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("select count(*) from profesonalTBL where email = '" + txtemail.Text + "' and prof_password = '" + txtpass.Text + "'", con);
+                proflog = Convert.ToInt16(cmd.ExecuteScalar());
+
+                if (userlog > 0)
+                {
+                    Session["customer"] = txtemail.Text;
+                    Response.Redirect("CustomerProfile.aspx");
+                }
+                else if (proflog > 0)
+                {
+                    Session["customer"] = txtemail.Text;
+                    Response.Redirect("Default.aspx");
                 }
                 else
                 {

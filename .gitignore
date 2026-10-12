@@ -1,8 +1,20 @@
+# Visual Studio User-Specific Files
 .vs/
-packages/
-bin/
-obj/
 *.user
 *.suo
-*.cache
-*.log
+*.userosscache
+*.sln.docstates
+
+# Build Intermediate Objects
+obj/
+
+# AI and IDE Tooling Files
+.gemini/
+GEMINI.md
+.agenthandoff/
+.vscode/
+.github/
+
+# Unrelated local directories
+database_con/
+

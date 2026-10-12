@@ -50,21 +50,19 @@ namespace workdone
             ds = new DataSet();
             da.Fill(ds);
 
-            txtfname.Text = ds.Tables[0].Rows[0][1].ToString();
-            txtlname.Text = ds.Tables[0].Rows[0][2].ToString();
-            txtEmail.Text = ds.Tables[0].Rows[0][3].ToString();
-            ddlGender.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtPhone.Text = ds.Tables[0].Rows[0][5].ToString();
-            txtAddress.Text = ds.Tables[0].Rows[0][6].ToString();
-            //txtpass.Text = ds.Tables[0].Rows[0][7].ToString();    
+            txtfname.Text = ds.Tables[0].Rows[0]["fname"].ToString();
+            txtlname.Text = ds.Tables[0].Rows[0]["lname"].ToString();
+            txtEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
+            if (ddlGender.Items.FindByValue(ds.Tables[0].Rows[0]["gender"].ToString()) != null)
+            {
+                ddlGender.SelectedValue = ds.Tables[0].Rows[0]["gender"].ToString();
+            }
+            txtPhone.Text = ds.Tables[0].Rows[0]["phone"].ToString();
+            txtpass.Text = ds.Tables[0].Rows[0]["pass"].ToString();
         }
-
-
-
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
             string fname = txtfname.Text;
             string lname = txtlname.Text;
             string email = txtEmail.Text;
@@ -72,23 +70,13 @@ namespace workdone
             string phone = txtPhone.Text;
             string password = txtpass.Text;
 
-            //if (fname != "" && lname != "" && email != "" && phone != "" && password != "")
             if (Button1.Text == "Create Account")
             {
                 getcon();
-                cmd = new SqlCommand("INSERT INTO customerTBL (fname, lname, email, gender, phone, pass) VALUES (@fname, @lname, @email, @gender, @phone, @pass)", con);
-
-                cmd.Parameters.AddWithValue("@fname", fname);
-                cmd.Parameters.AddWithValue("@lname", lname);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@gender", gender);
-                cmd.Parameters.AddWithValue("@phone", phone);
-                cmd.Parameters.AddWithValue("@pass", password);
-
+                cmd = new SqlCommand("INSERT INTO customerTBL (fname, lname, email, gender, phone, pass) VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + gender + "', '" + phone + "', '" + password + "')", con);
                 cmd.ExecuteNonQuery();
 
                 Response.Redirect("Login.aspx");
-
             }
             else if (Button1.Text == "Update")
             {
@@ -104,11 +92,12 @@ namespace workdone
                     "WHERE Id='" + ViewState["id"] + "'", con);
 
                 cmd.ExecuteNonQuery();
+                Button1.Text = "Create Account";
                 fillgride();
             }
             else
             {
-                Label1.Text = "Fill all the filds";
+                Label1.Text = "Fill all the fields";
             }
         }
 
