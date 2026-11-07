@@ -35,8 +35,8 @@ namespace workdone
             da = new SqlDataAdapter("SELECT * FROM customerTBL", con);
             ds = new DataSet();
             da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            //GridView1.DataSource = ds;
+            //GridView1.DataBind();
         }
 
         void filldata()
@@ -44,7 +44,7 @@ namespace workdone
             getcon();
 
             da = new SqlDataAdapter(
-                "SELECT * FROM customerTBL WHERE Id = '" + ViewState["id"] + "'",
+                "SELECT * FROM customerTBL WHERE Cid = '" + ViewState["id"] + "'",
                 con);
 
             ds = new DataSet();
@@ -53,10 +53,7 @@ namespace workdone
             txtfname.Text = ds.Tables[0].Rows[0]["fname"].ToString();
             txtlname.Text = ds.Tables[0].Rows[0]["lname"].ToString();
             txtEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
-            if (ddlGender.Items.FindByValue(ds.Tables[0].Rows[0]["gender"].ToString()) != null)
-            {
-                ddlGender.SelectedValue = ds.Tables[0].Rows[0]["gender"].ToString();
-            }
+            ddlGender.SelectedValue = ds.Tables[0].Rows[0]["gender"].ToString();
             txtPhone.Text = ds.Tables[0].Rows[0]["phone"].ToString();
             txtpass.Text = ds.Tables[0].Rows[0]["pass"].ToString();
         }
@@ -78,51 +75,51 @@ namespace workdone
 
                 Response.Redirect("Login.aspx");
             }
-            else if (Button1.Text == "Update")
-            {
-                getcon();
+            //else if (Button1.Text == "Update")
+            //{
+            //    getcon();
 
-                cmd = new SqlCommand("UPDATE customerTBL SET " +
-                    "fname='" + txtfname.Text + "'," +
-                    "lname='" + txtlname.Text + "'," +
-                    "email='" + txtEmail.Text + "'," +
-                    "gender='" + ddlGender.SelectedValue + "'," +
-                    "phone='" + txtPhone.Text + "'," +
-                    "pass='" + txtpass.Text + "' " +
-                    "WHERE Id='" + ViewState["id"] + "'", con);
+            //    cmd = new SqlCommand("UPDATE customerTBL SET " +
+            //        "fname='" + txtfname.Text + "'," +
+            //        "lname='" + txtlname.Text + "'," +
+            //        "email='" + txtEmail.Text + "'," +
+            //        "gender='" + ddlGender.SelectedValue + "'," +
+            //        "phone='" + txtPhone.Text + "'," +
+            //        "pass='" + txtpass.Text + "' " +
+            //        "WHERE Cid='" + ViewState["id"] + "'", con);
 
-                cmd.ExecuteNonQuery();
-                Button1.Text = "Create Account";
-                fillgride();
-            }
+            //    cmd.ExecuteNonQuery();
+            //    Button1.Text = "Create Account";
+            //    fillgride();
+            //}
             else
             {
                 Label1.Text = "Fill all the fields";
             }
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "cmd_edt")
-            {
-                int id = Convert.ToInt32(e.CommandArgument);
+        //protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "cmd_edt")
+        //    {
+        //        int id = Convert.ToInt32(e.CommandArgument);
 
-                ViewState["id"] = id;
+        //        ViewState["id"] = id;
 
-                Button1.Text = "Update";
+        //        Button1.Text = "Update";
 
-                filldata();
-            }
-            else
-            {
-                getcon();
+        //        filldata();
+        //    }
+        //    else
+        //    {
+        //        getcon();
 
-                cmd = new SqlCommand("DELETE FROM customerTBL WHERE Id = '" + e.CommandArgument + "'", con);
+        //        cmd = new SqlCommand("DELETE FROM customerTBL WHERE Cid = '" + e.CommandArgument + "'", con);
 
-                cmd.ExecuteNonQuery();
+        //        cmd.ExecuteNonQuery();
 
-                fillgride();
-            }
-        }
+        //        fillgride();
+        //    }
+        //}
     }
 }

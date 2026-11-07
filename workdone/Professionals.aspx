@@ -16,15 +16,15 @@
             margin-bottom: 2rem !important;
         }
 
-        .professionals-grid-container > *,
-        #MainContent_DataList1 > *,
-        [id$="DataList1"] > * {
-            display: flex !important;
-            flex-direction: column !important;
-            height: 100% !important;
-            min-width: 0 !important;
-            width: 100% !important;
-        }
+            .professionals-grid-container > *,
+            #MainContent_DataList1 > *,
+            [id$="DataList1"] > * {
+                display: flex !important;
+                flex-direction: column !important;
+                height: 100% !important;
+                min-width: 0 !important;
+                width: 100% !important;
+            }
 
         .worker-card-col {
             display: flex !important;
@@ -46,11 +46,11 @@
             overflow: hidden;
         }
 
-        .worker-card:hover {
-            transform: translateY(-8px) !important;
-            box-shadow: 0 20px 35px -8px rgba(67, 56, 202, 0.16) !important;
-            border-color: rgba(99, 102, 241, 0.4) !important;
-        }
+            .worker-card:hover {
+                transform: translateY(-8px) !important;
+                box-shadow: 0 20px 35px -8px rgba(67, 56, 202, 0.16) !important;
+                border-color: rgba(99, 102, 241, 0.4) !important;
+            }
 
         @media (max-width: 1199.98px) {
             .professionals-grid-container,
@@ -79,7 +79,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h2 class="fw-bold mb-4">Find Trusted Local Professionals</h2>
-                    
+
                     <div class="search-box bg-white rounded-pill shadow-sm p-2 d-flex flex-column flex-md-row align-items-center">
                         <div class="input-group search-input border-end-md pe-md-2 mb-2 mb-md-0">
                             <span class="input-group-text bg-transparent border-0 text-muted ps-3"><i class="bi bi-search"></i></span>
@@ -108,9 +108,9 @@
             <div class="row">
                 <!-- Sidebar Filters -->
                 <div class="col-lg-3 mb-4 mb-lg-0">
-                    <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 100px;">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 100px; left: 0px;">
                         <h5 class="fw-bold mb-4">Filters</h5>
-                        
+
                         <div class="mb-4">
                             <h6 class="fw-bold mb-3 small text-muted text-uppercase tracking-wider">Service Category</h6>
                             <div class="d-flex flex-column gap-2">
@@ -134,11 +134,12 @@
                                 </a>
                             </div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <h6 class="fw-bold mb-3 small text-muted text-uppercase tracking-wider">Quick Information</h6>
                             <p class="small text-muted mb-0">
                                 <i class="bi bi-shield-check text-success me-1"></i>All listed professionals are background-verified and locally available.
+                           
                             </p>
                         </div>
                     </div>
@@ -147,7 +148,9 @@
                 <!-- Results -->
                 <div class="col-lg-9">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="fw-bold mb-0">Showing <asp:Label ID="lblCount" runat="server" CssClass="text-primary" Text="0"></asp:Label> professionals</h5>
+                        <h5 class="fw-bold mb-0">Showing
+                            <asp:Label ID="lblCount" runat="server" CssClass="text-primary" Text="0"></asp:Label>
+                            professionals</h5>
                     </div>
 
                     <asp:Label ID="lblNoData" runat="server" Visible="false" CssClass="alert alert-light border border-secondary border-opacity-25 shadow-sm rounded-4 p-4 text-center d-block w-100 my-4 text-muted fw-medium" Text="No professionals found matching your search."></asp:Label>
@@ -167,7 +170,7 @@
                                                 <span class="badge bg-primary-subtle text-primary border border-primary-subtle"><%# Eval("service") %></span>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row text-center mb-3 g-2 bg-light rounded-3 py-2 mx-0 border border-light-subtle">
                                             <div class="col-4 border-end border-secondary-subtle">
                                                 <div class="fw-bold fs-6 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning me-1"></i>4.8</div>
@@ -182,7 +185,7 @@
                                                 <div class="small text-muted" style="font-size: 0.75rem;">Exp</div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="d-flex align-items-center justify-content-between text-muted small mb-3 pb-3 border-bottom">
                                             <div class="d-flex align-items-center text-truncate me-2">
                                                 <i class="bi bi-geo-alt-fill text-danger me-1 flex-shrink-0"></i>
@@ -192,10 +195,11 @@
                                                 <i class="bi bi-telephone text-success me-1"></i><%# Eval("phone") %>
                                             </div>
                                         </div>
-                                        
-                                        <div class="mt-auto">
-                                            <asp:LinkButton ID="btnBook" runat="server" CommandName="cmd_book" CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-primary rounded-pill w-100 fw-medium shadow-sm py-2">
-                                                <i class="bi bi-calendar-check me-1"></i>Book Now
+
+                                        <div class="mt-auto d-flex gap-2">
+                                            <asp:LinkButton ID="btnBook" runat="server" CommandName="cmd_book" CommandArgument='<%# Eval("Pid") %>' CssClass="btn btn-primary rounded-pill fw-medium shadow-sm py-2 flex-fill" ForeColor="White">Book now</asp:LinkButton>
+                                            <asp:LinkButton ID="btnViewProfile" runat="server" CommandName="cmd_profile" CommandArgument='<%# Eval("Pid") %>' CssClass="btn btn-outline-primary rounded-pill fw-medium py-2 flex-fill">
+                                                <i class="bi bi-person-lines-fill me-1"></i>View Profile
                                             </asp:LinkButton>
                                         </div>
                                     </div>

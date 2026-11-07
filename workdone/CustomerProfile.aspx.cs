@@ -13,7 +13,9 @@ namespace workdone
         SqlCommand cmd;//For insert, update, delete
         SqlDataAdapter da;//For Container
         DataSet ds;//For Select
-        string name;
+
+        string fname;
+        string lname;
 
         string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
@@ -35,18 +37,18 @@ namespace workdone
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    name = ds.Tables[0].Rows[0]["fname"].ToString();
-                    string lname = ds.Tables[0].Rows[0]["lname"].ToString();
-                    lblCustomerFullName.Text = name + " " + lname;
-                    lblCustomerId.Text = ds.Tables[0].Rows[0]["Id"].ToString();
-                    lblHeaderEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
-                    if (!string.IsNullOrEmpty(name))
+                    fname = ds.Tables[0].Rows[0]["fname"].ToString();
+                    lname = ds.Tables[0].Rows[0]["lname"].ToString();
+                    lblcname.Text = fname + " " + lname;
+                    lblcid.Text = ds.Tables[0].Rows[0]["Cid"].ToString();
+                    lbleml.Text = ds.Tables[0].Rows[0]["email"].ToString();
+                    if (!string.IsNullOrEmpty(fname))
                     {
-                        lblAvatarInitials.Text = name.Substring(0, 1).ToUpper();
+                        lblAvatar.Text = fname.Substring(0, 1).ToUpper();
                     }
                     if (!IsPostBack)
                     {
-                        txtfname.Text = name;
+                        txtfname.Text = fname;
                         txtlname.Text = lname;
                         txtEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
                         txtPhone.Text = ds.Tables[0].Rows[0]["phone"].ToString();
@@ -67,45 +69,24 @@ namespace workdone
                     da.Fill(ds);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        name = ds.Tables[0].Rows[0]["fname"].ToString();
-                        string lname = ds.Tables[0].Rows[0]["lname"].ToString();
-                        lblCustomerFullName.Text = name + " " + lname;
-                        lblCustomerId.Text = ds.Tables[0].Rows[0]["Id"].ToString();
-                        lblHeaderEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
-                        if (!string.IsNullOrEmpty(name))
+                        fname = ds.Tables[0].Rows[0]["fname"].ToString();
+                        lname = ds.Tables[0].Rows[0]["lname"].ToString();
+                        lblcname.Text = fname + " " + lname;
+                        lblcid.Text = ds.Tables[0].Rows[0]["Pid"].ToString();
+                        lbleml.Text = ds.Tables[0].Rows[0]["email"].ToString();
+                        if (!string.IsNullOrEmpty(fname))
                         {
-                            lblAvatarInitials.Text = name.Substring(0, 1).ToUpper();
+                            lblAvatar.Text = fname.Substring(0, 1).ToUpper();
                         }
                         if (!IsPostBack)
                         {
-                            txtfname.Text = name;
+                            txtfname.Text = fname;
                             txtlname.Text = lname;
                             txtEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
                             txtPhone.Text = ds.Tables[0].Rows[0]["phone"].ToString();
-                            if (ds.Tables[0].Rows[0]["gender"] != DBNull.Value)
-                            {
-                                string gen = ds.Tables[0].Rows[0]["gender"].ToString();
-                                if (ddlGender.Items.FindByValue(gen) != null)
-                                {
-                                    ddlGender.SelectedValue = gen;
-                                }
-                            }
-                            if (ds.Tables[0].Rows[0]["city"] != DBNull.Value)
-                            {
-                                string ct = ds.Tables[0].Rows[0]["city"].ToString();
-                                if (ddlCity.Items.FindByValue(ct) != null)
-                                {
-                                    ddlCity.SelectedValue = ct;
-                                }
-                            }
-                            if (ds.Tables[0].Rows[0]["address"] != DBNull.Value)
-                            {
-                                txtAddress.Text = ds.Tables[0].Rows[0]["address"].ToString();
-                                if (lblDisplayAddress != null)
-                                {
-                                    lblDisplayAddress.Text = ds.Tables[0].Rows[0]["address"].ToString();
-                                }
-                            }
+                            ddlGender.SelectedValue = ds.Tables[0].Rows[0]["gender"].ToString();
+                            ddlCity.SelectedValue = ds.Tables[0].Rows[0]["city"].ToString();
+
                         }
                     }
                 }
@@ -131,21 +112,17 @@ namespace workdone
                     cmd = new SqlCommand("update customerTBL set fname = '" + txtfname.Text + "', lname = '" + txtlname.Text + "', phone = '" + txtPhone.Text + "', gender = '" + ddlGender.SelectedValue + "' where email = '" + Session["customer"] + "'", con);
                     cmd.ExecuteNonQuery();
 
-                    lblCustomerFullName.Text = txtfname.Text + " " + txtlname.Text;
+                    lblcname.Text = txtfname.Text + " " + txtlname.Text;
                     lblAlertMessage.Text = "Profile updated successfully!";
                     pnlAlertMessage.CssClass = "alert alert-success alert-dismissible fade show rounded-3 mb-4";
                     pnlAlertMessage.Visible = true;
                 }
                 else
                 {
-                    cmd = new SqlCommand("update profesonalTBL set fname = '" + txtfname.Text + "', lname = '" + txtlname.Text + "', phone = '" + txtPhone.Text + "', gender = '" + ddlGender.SelectedValue + "', city = '" + ddlCity.SelectedValue + "', address = '" + txtAddress.Text + "' where email = '" + Session["customer"] + "'", con);
+                    cmd = new SqlCommand("update profesonalTBL set fname = '" + txtfname.Text + "', lname = '" + txtlname.Text + "', phone = '" + txtPhone.Text + "', gender = '" + ddlGender.SelectedValue + "', city = '" + ddlCity.SelectedValue + "' where email = '" + Session["customer"] + "'", con);
                     cmd.ExecuteNonQuery();
 
-                    lblCustomerFullName.Text = txtfname.Text + " " + txtlname.Text;
-                    if (lblDisplayAddress != null)
-                    {
-                        lblDisplayAddress.Text = txtAddress.Text;
-                    }
+                    lblcname.Text = txtfname.Text + " " + txtlname.Text;
                     lblAlertMessage.Text = "Professional profile updated successfully!";
                     pnlAlertMessage.CssClass = "alert alert-success alert-dismissible fade show rounded-3 mb-4";
                     pnlAlertMessage.Visible = true;
@@ -157,64 +134,64 @@ namespace workdone
         {
             if (Session["customer"] != null)
             {
-                if (string.IsNullOrEmpty(txtCurrentPassword.Text) || string.IsNullOrEmpty(txtNewPassword.Text))
+                if (string.IsNullOrEmpty(txtcurrentpass.Text) || string.IsNullOrEmpty(txtnewpass.Text))
                 {
-                    lblPasswordAlert.Text = "Please enter both current and new password.";
-                    pnlPasswordAlert.CssClass = "alert alert-danger alert-dismissible fade show rounded-3 mb-4";
+                    lblpassalert.Text = "Please enter all password fields.";
+                    pnlPasswordAlert.CssClass = "alert alert-danger rounded-3 mb-4";
                     pnlPasswordAlert.Visible = true;
                     return;
                 }
 
-                if (txtNewPassword.Text != txtConfirmPassword.Text)
+                if (txtnewpass.Text != txtconfirmpass.Text)
                 {
-                    lblPasswordAlert.Text = "New password and confirm password do not match.";
-                    pnlPasswordAlert.CssClass = "alert alert-danger alert-dismissible fade show rounded-3 mb-4";
+                    lblpassalert.Text = "New password and confirm password do not match.";
+                    pnlPasswordAlert.CssClass = "alert alert-danger rounded-3 mb-4";
                     pnlPasswordAlert.Visible = true;
                     return;
                 }
 
                 getcon();
 
-                // Check customer password
-                da = new SqlDataAdapter("select * from customerTBL where email = '" + Session["customer"] + "' and pass = '" + txtCurrentPassword.Text + "'", con);
+
+                da = new SqlDataAdapter("select * from customerTBL where email = '" + Session["customer"] + "' and pass = '" + txtcurrentpass.Text + "'", con);
                 ds = new DataSet();
                 da.Fill(ds);
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    cmd = new SqlCommand("update customerTBL set pass = '" + txtNewPassword.Text + "' where email = '" + Session["customer"] + "'", con);
+                    cmd = new SqlCommand("update customerTBL set pass = '" + txtnewpass.Text + "' where email = '" + Session["customer"] + "'", con);
                     cmd.ExecuteNonQuery();
 
-                    lblPasswordAlert.Text = "Password updated successfully!";
-                    pnlPasswordAlert.CssClass = "alert alert-success alert-dismissible fade show rounded-3 mb-4";
+                    lblpassalert.Text = "Password updated successfully!";
+                    pnlPasswordAlert.CssClass = "alert alert-success rounded-3 mb-4";
                     pnlPasswordAlert.Visible = true;
-                    txtCurrentPassword.Text = "";
-                    txtNewPassword.Text = "";
-                    txtConfirmPassword.Text = "";
+                    txtcurrentpass.Text = "";
+                    txtnewpass.Text = "";
+                    txtconfirmpass.Text = "";
                 }
                 else
                 {
-                    // Check professional password
-                    da = new SqlDataAdapter("select * from profesonalTBL where email = '" + Session["customer"] + "' and prof_password = '" + txtCurrentPassword.Text + "'", con);
+
+                    da = new SqlDataAdapter("select * from profesonalTBL where email = '" + Session["customer"] + "' and prof_password = '" + txtcurrentpass.Text + "'", con);
                     ds = new DataSet();
                     da.Fill(ds);
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        cmd = new SqlCommand("update profesonalTBL set prof_password = '" + txtNewPassword.Text + "' where email = '" + Session["customer"] + "'", con);
+                        cmd = new SqlCommand("update profesonalTBL set prof_password = '" + txtnewpass.Text + "' where email = '" + Session["customer"] + "'", con);
                         cmd.ExecuteNonQuery();
 
-                        lblPasswordAlert.Text = "Password updated successfully!";
-                        pnlPasswordAlert.CssClass = "alert alert-success alert-dismissible fade show rounded-3 mb-4";
+                        lblpassalert.Text = "Password updated successfully!";
+                        pnlPasswordAlert.CssClass = "alert alert-success rounded-3 mb-4";
                         pnlPasswordAlert.Visible = true;
-                        txtCurrentPassword.Text = "";
-                        txtNewPassword.Text = "";
-                        txtConfirmPassword.Text = "";
+                        txtcurrentpass.Text = "";
+                        txtnewpass.Text = "";
+                        txtconfirmpass.Text = "";
                     }
                     else
                     {
-                        lblPasswordAlert.Text = "Current password is incorrect.";
-                        pnlPasswordAlert.CssClass = "alert alert-danger alert-dismissible fade show rounded-3 mb-4";
+                        lblpassalert.Text = "Current password is incorrect.";
+                        pnlPasswordAlert.CssClass = "alert alert-danger rounded-3 mb-4";
                         pnlPasswordAlert.Visible = true;
                     }
                 }

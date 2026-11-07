@@ -44,7 +44,7 @@ namespace workdone
                 {
                     Session["admin"] = txtemail.Text;
                     Response.Redirect("Admin/AdminUsers.aspx");
-                    return;
+                    
                 }
 
                 cmd = new SqlCommand("select count(*) from customerTBL where email = '" + txtemail.Text + "' and pass = '" + txtpass.Text + "'", con);
@@ -60,8 +60,8 @@ namespace workdone
                 }
                 else if (proflog > 0)
                 {
-                    Session["customer"] = txtemail.Text;
-                    Response.Redirect("Default.aspx");
+                    Session["professional"] = txtemail.Text;
+                    Response.Redirect("Professional/Dashboard.aspx");
                 }
                 else
                 {

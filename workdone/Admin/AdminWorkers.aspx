@@ -152,7 +152,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="ID" ItemStyle-Width="60px" ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center">
                             <ItemTemplate>
-                                <span class="badge bg-light text-secondary border font-monospace px-2 py-1">#<%# Eval("Id") %></span>
+                                <span class="badge bg-light text-secondary border font-monospace px-2 py-1">#<%# Eval("Pid") %></span>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -226,7 +226,7 @@
 
                         <asp:TemplateField HeaderText="Actions" ItemStyle-Width="110px" ItemStyle-CssClass="text-end pe-4" HeaderStyle-CssClass="text-end pe-4">
                             <ItemTemplate>
-                                <asp:LinkButton ID="LinkButtonDlt" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt"
+                                <asp:LinkButton ID="LinkButtonDlt" runat="server" CommandArgument='<%# Eval("Pid") %>' CommandName="cmd_dlt"
                                     CssClass="btn btn-sm btn-outline-danger rounded-pill px-3 py-1 shadow-sm d-inline-flex align-items-center gap-1"
                                     OnClientClick="return confirm('Are you sure you want to delete this professional?');">
                                     <i class="bi bi-trash3-fill"></i> Delete
