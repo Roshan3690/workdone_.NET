@@ -119,7 +119,7 @@
                 </asp:DropDownList>
             </div>
             <div class="col-sm-6 col-lg-3 col-md-3 d-flex gap-2">
-                <asp:Button ID="btnSearchCustomer" runat="server" Text="Filter" OnClick="btnSearchCustomer_Click" CssClass="btn btn-admin-primary w-100" />
+                <asp:Button ID="btnSearchCustomer" runat="server" Text="Filter"  CssClass="btn btn-admin-primary w-100" />
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="ID" ItemStyle-Width="70px" ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center">
                             <ItemTemplate>
-                                <span class="badge bg-light text-secondary border font-monospace px-2 py-1">#<%# Eval("Id") %></span>
+                                <span class="badge bg-light text-secondary border font-monospace px-2 py-1">#<%# Eval("Cid") %></span>
                             </ItemTemplate>
                         </asp:TemplateField>
                         
@@ -193,7 +193,7 @@
                         <asp:TemplateField HeaderText="Actions" ItemStyle-Width="120px" ItemStyle-CssClass="text-end pe-4" HeaderStyle-CssClass="text-end pe-4">
                             <ItemTemplate>
                                 <div class="d-inline-flex gap-2">
-                                    <asp:LinkButton ID="btn_dlt" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt"
+                                    <asp:LinkButton ID="btn_dlt" runat="server" CommandArgument='<%# Eval("Cid") %>' CommandName="cmd_dlt"
                                         CssClass="btn btn-sm btn-outline-danger rounded-pill px-3 py-1 shadow-sm d-inline-flex align-items-center gap-1"
                                         OnClientClick="return confirm('Are you sure you want to permanently delete this customer record?');">
                                         <i class="bi bi-trash3-fill"></i> Delete

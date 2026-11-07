@@ -78,11 +78,11 @@
                         </div>
                         
                         <div class="table-responsive mt-4">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" CssClass="table table-hover table-bordered align-middle bg-white rounded-3 overflow-hidden shadow-sm">
+                            <%--<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" CssClass="table table-hover table-bordered align-middle bg-white rounded-3 overflow-hidden shadow-sm">
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Id">
+                                    <asp:TemplateField HeaderText="Cid">
                                         <ItemTemplate>
-                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Cid") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="fname">
@@ -112,16 +112,16 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Edit">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' Text="Edit" CommandName="cmd_edt"></asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Cid") %>' Text="Edit" CommandName="cmd_edt"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Delete">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Cid") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
-                            </asp:GridView>
+                            </asp:GridView>--%>
                         </div>
                         </div>
                     </div>

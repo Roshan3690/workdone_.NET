@@ -60,15 +60,6 @@ namespace workdone
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
 
         /// <summary>
-        /// drpcity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpcity;
-
-        /// <summary>
         /// txtAddress control.
         /// </summary>
         /// <remarks>
@@ -103,14 +94,5 @@ namespace workdone
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

@@ -318,7 +318,10 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">&nbsp;
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    &nbsp;
+
+   
 
     <!-- HERO SECTION -->
     <section class="profile-hero">
@@ -336,23 +339,23 @@
                             <tr>
                                 <td>
                                     <asp:Image ID="Image1" runat="server" Height="141px" Width="117px" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   
                                     <asp:Label ID="lblpronm" runat="server" Font-Size="XX-Large" ForeColor="White"></asp:Label>
                                     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    &nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>
                                     <asp:Label ID="Label1" runat="server" ForeColor="Yellow" Text="Skills &amp; Services:"></asp:Label>
                                     <br />
                                     <asp:Label ID="lblprosrv" runat="server" Font-Size="Medium" ForeColor="White"></asp:Label>
-                                    </td>
-                                    </tr>
+                                </td>
+                            </tr>
                         </table>
                         &nbsp;<br />
                         <div>
@@ -371,7 +374,10 @@
                                 <i class="bi bi-geo-alt-fill text-danger"></i>Rajkot, Gujarat
                                 &nbsp;·&nbsp;
                                
+                               
+
                                 <i class="bi bi-clock"></i>Responds in ~1 hr
+                           
                            
                             </div>
                         </div>
@@ -417,12 +423,16 @@
                     <div class="profile-card">
                         <div class="section-title"><i class="bi bi-person-lines-fill"></i>About</div>
                         <p class="text-muted mb-0" style="line-height: 1.75;">
-                            Hi! I'm <strong>Roshan Pandit</strong>, a professional home cleaning specialist with over
+                            Hi! I'm <strong>Roshan Pandit</strong><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                            , a professional home cleaning specialist with over
                            
+                           
+
                             <strong>10 years of experience</strong> serving households across Rajkot. I take pride in
                             delivering thorough, reliable, and eco-friendly cleaning services. My attention to detail and
                             commitment to customer satisfaction have earned me 340+ completed jobs and a loyal client base.
                             I am fully equipped with professional-grade tools and use safe, non-toxic cleaning products.
+                       
                        
                         </p>
                     </div>
@@ -473,26 +483,36 @@
                                 <div class="text-muted small">128 reviews</div>
                             </div>
                             <div class="col-sm-9">
-                                <div class="rating-row"><span class="r-label">5 &#9733;</span><div class="progress">
-                                    <div class="progress-bar" style="width: 70%"></div>
+                                <div class="rating-row">
+                                    <span class="r-label">5 &#9733;</span><div class="progress">
+                                        <div class="progress-bar" style="width: 70%"></div>
+                                    </div>
+                                    <span class="r-count">90</span>
                                 </div>
-                                    <span class="r-count">90</span></div>
-                                <div class="rating-row"><span class="r-label">4 &#9733;</span><div class="progress">
-                                    <div class="progress-bar" style="width: 20%"></div>
+                                <div class="rating-row">
+                                    <span class="r-label">4 &#9733;</span><div class="progress">
+                                        <div class="progress-bar" style="width: 20%"></div>
+                                    </div>
+                                    <span class="r-count">25</span>
                                 </div>
-                                    <span class="r-count">25</span></div>
-                                <div class="rating-row"><span class="r-label">3 &#9733;</span><div class="progress">
-                                    <div class="progress-bar" style="width: 6%"></div>
+                                <div class="rating-row">
+                                    <span class="r-label">3 &#9733;</span><div class="progress">
+                                        <div class="progress-bar" style="width: 6%"></div>
+                                    </div>
+                                    <span class="r-count">8</span>
                                 </div>
-                                    <span class="r-count">8</span></div>
-                                <div class="rating-row"><span class="r-label">2 &#9733;</span><div class="progress">
-                                    <div class="progress-bar" style="width: 3%"></div>
+                                <div class="rating-row">
+                                    <span class="r-label">2 &#9733;</span><div class="progress">
+                                        <div class="progress-bar" style="width: 3%"></div>
+                                    </div>
+                                    <span class="r-count">4</span>
                                 </div>
-                                    <span class="r-count">4</span></div>
-                                <div class="rating-row"><span class="r-label">1 &#9733;</span><div class="progress">
-                                    <div class="progress-bar" style="width: 1%"></div>
+                                <div class="rating-row">
+                                    <span class="r-label">1 &#9733;</span><div class="progress">
+                                        <div class="progress-bar" style="width: 1%"></div>
+                                    </div>
+                                    <span class="r-count">1</span>
                                 </div>
-                                    <span class="r-count">1</span></div>
                             </div>
                         </div>
                     </div>
@@ -518,6 +538,7 @@
                                 Absolutely fantastic service! Roshan cleaned our entire 3BHK in just 4 hours.
                                 Everything was spotless — kitchen, bathrooms, balconies. Highly recommended!
                            
+                           
                             </p>
                         </div>
 
@@ -538,6 +559,7 @@
                                 Very professional and punctual. Used eco-friendly products which I appreciate.
                                 Will definitely book again for monthly cleaning.
                            
+                           
                             </p>
                         </div>
 
@@ -557,6 +579,7 @@
                             <p class="mb-0 text-muted" style="font-size: 0.9rem; line-height: 1.65;">
                                 Hired for post-construction cleanup — tough job but Roshan handled it brilliantly.
                                 Very hardworking and detail-oriented. 5 stars for effort!
+                           
                            
                             </p>
                         </div>
@@ -591,14 +614,12 @@
                             <div class="feature-row"><i class="bi bi-cash-coin"></i>Pay after service</div>
                         </div>
 
-                        <button class="btn-book-now" onclick="alert('Booking flow coming soon!')">
-                            <i class="bi bi-calendar-check me-2"></i>Book Now
-                       
-                        </button>
+                      
+
+                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary rounded-pill fw-medium shadow-sm py-2 flex-fill" ForeColor="White" Width="360px" BorderWidth="3" Text="Book now" OnClick="Button1_Click" />
+
                         <button class="btn-contact" onclick="alert('Chat feature coming soon!')">
-                            <i class="bi bi-chat-dots me-2"></i>Contact Professional
-                       
-                        </button>
+                            <i class="bi bi-chat-dots me-2"></i>Contact Professional</button>
 
                         <div class="text-center mt-4">
                             <div class="text-muted small mb-2">Share this profile</div>
