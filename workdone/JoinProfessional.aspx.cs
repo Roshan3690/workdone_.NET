@@ -54,7 +54,7 @@ namespace workdone
             ds = new DataSet();
             da.Fill(ds);
             //GridView1.DataSource = ds;
-            //xGridView1.DataBind();
+            //GridView1.DataBind();
         }
 
 
@@ -94,3 +94,4 @@ namespace workdone
         }
     }
 }
+

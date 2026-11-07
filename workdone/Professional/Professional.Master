@@ -1,0 +1,325 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Professional.Master.cs" Inherits="workdone.Professional.ProfessionalMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><asp:ContentPlaceHolder ID="ProfessionalTitle" runat="server">Professional Portal - WorkDone</asp:ContentPlaceHolder></title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    
+    <style>
+        :root {
+            --prof-primary: #2563eb;
+            --prof-primary-dark: #1d4ed8;
+            --prof-sidebar-bg: #0f172a;
+            --prof-sidebar-hover: #1e293b;
+            --prof-text-muted: #94a3b8;
+            --prof-body-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--prof-body-bg);
+            color: #334155;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #prof-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        #prof-sidebar {
+            width: 260px;
+            background-color: var(--prof-sidebar-bg);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            transition: transform 0.3s ease;
+        }
+
+        .prof-brand {
+            padding: 24px 20px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .prof-brand span.badge-prof {
+            font-size: 0.65rem;
+            letter-spacing: 0.5px;
+            background: #2563eb;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        .prof-menu {
+            padding: 20px 14px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .prof-menu-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--prof-text-muted);
+            padding: 10px 12px 6px;
+            font-weight: 600;
+        }
+
+        .prof-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            color: var(--prof-text-muted);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .prof-link i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .prof-link:hover {
+            color: #ffffff;
+            background-color: var(--prof-sidebar-hover);
+        }
+
+        .prof-link.active {
+            color: #ffffff;
+            background-color: var(--prof-primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+
+        .prof-footer {
+            padding: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .prof-user-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+        }
+
+        .prof-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Content Area */
+        #prof-content {
+            margin-left: 260px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: calc(100% - 260px);
+        }
+
+        .prof-topbar {
+            height: 70px;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: #ecfdf5;
+            color: #059669;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }
+
+        .prof-main {
+            padding: 28px;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 991.98px) {
+            #prof-sidebar {
+                transform: translateX(-100%);
+            }
+            #prof-sidebar.open {
+                transform: translateX(0);
+            }
+            #prof-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 1030;
+            }
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+    
+    <asp:ContentPlaceHolder ID="ProfessionalHead" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="profForm" runat="server">
+        <div id="prof-wrapper">
+            <!-- Mobile Overlay -->
+            <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+            <!-- RESTRICTED PROFESSIONAL SIDEBAR (ONLY Dashboard, Help, Contact Us) -->
+            <aside id="prof-sidebar">
+                <a href="Dashboard.aspx" class="prof-brand">
+                    <i class="bi bi-tools text-primary me-2"></i>WorkDone
+                    <span class="badge-prof">Pro</span>
+                </a>
+
+                <nav class="prof-menu">
+                    <div class="prof-menu-label">Portal Navigation</div>
+
+                    <!-- 1. DASHBOARD -->
+                    <a href="Dashboard.aspx" class="prof-link <%= Request.Url.AbsolutePath.ToLower().Contains("dashboard.aspx") ? "active" : "" %>">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <!-- 2. HELP -->
+                    <a href="Help.aspx" class="prof-link <%= Request.Url.AbsolutePath.ToLower().Contains("help.aspx") ? "active" : "" %>">
+                        <i class="bi bi-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+
+                    <!-- 3. CONTACT US -->
+                    <a href="ContactUs.aspx" class="prof-link <%= Request.Url.AbsolutePath.ToLower().Contains("contactus.aspx") ? "active" : "" %>">
+                        <i class="bi bi-headset"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </nav>
+
+                <div class="prof-footer">
+                    <div class="prof-user-card">
+                        <div class="prof-avatar">
+                            <%= GetInitials() %>
+                        </div>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <div class="fw-semibold text-truncate small"><%= ProfessionalName %></div>
+                            <div class="text-muted text-truncate" style="font-size: 0.72rem;"><%= ProfessionalEmail %></div>
+                        </div>
+                        <asp:LinkButton ID="btnProLogout" runat="server" CssClass="text-danger p-2" OnClick="btnProLogout_Click" CausesValidation="false" ToolTip="Log Out">
+                            <i class="bi bi-box-arrow-right fs-5"></i>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CONTENT WRAPPER -->
+            <div id="prof-content">
+                <!-- TOPBAR -->
+                <header class="prof-topbar">
+                    <button type="button" class="btn btn-light d-lg-none p-2 border-0" onclick="toggleSidebar()">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+
+                    <div class="d-none d-sm-flex align-items-center gap-2">
+                        <span class="status-badge">
+                            <span class="status-dot"></span> Available for Jobs
+                        </span>
+                        <span class="text-muted small ms-2">Professional Mode Active</span>
+                    </div>
+
+                    <div class="ms-auto d-flex align-items-center gap-3">
+                        <a href="Help.aspx" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                            <i class="bi bi-life-preserver me-1"></i> Support
+                        </a>
+                        <asp:LinkButton ID="btnTopLogout" runat="server" CssClass="btn btn-danger btn-sm rounded-pill px-3" OnClick="btnProLogout_Click" CausesValidation="false">
+                            <i class="bi bi-box-arrow-right me-1"></i> Logout
+                        </asp:LinkButton>
+                    </div>
+                </header>
+
+                <!-- MAIN TEMPLATE CONTENT -->
+                <main class="prof-main">
+                    <asp:ContentPlaceHolder ID="ProfessionalMainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('prof-sidebar');
+            var overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="ProfessionalScripts" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>

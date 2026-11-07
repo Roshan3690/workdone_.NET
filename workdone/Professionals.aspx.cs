@@ -24,10 +24,17 @@ namespace workdone
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getcon();
-            if (!IsPostBack)
+           
+            if (Session["customer"] != null)
             {
-                filldatalist();
+                
+                
+                    filldatalist();
+                
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
             }
         }
 
@@ -97,18 +104,18 @@ namespace workdone
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            if (e.CommandName == "cmd_book")
+            int id = Convert.ToInt32(e.CommandArgument);
+
+            if (e.CommandName == "cmd_profile")
             {
-                if (Session["customer"] == null)
-                {
-                    Response.Redirect("Login.aspx");
-                }
-                else
-                {
-                    int id = Convert.ToInt32(e.CommandArgument);
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Booking request sent successfully to professional! They will contact you shortly.');", true);
-                }
+                Response.Redirect("ProfessionalProfile.aspx?id=" + id);
+            }
+            else if (e.CommandName == "cmd_book")
+            {
+                Response.Redirect("Booking.aspx?id=" + id);
             }
         }
     }
 }
+
+

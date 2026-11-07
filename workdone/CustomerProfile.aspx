@@ -9,7 +9,6 @@
         .profile-avatar-circle {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
             color: #ffffff;
             font-size: 2.25rem;
             font-weight: 700;
@@ -18,6 +17,7 @@
             justify-content: center;
             border-radius: 50%;
             box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+            margin-left: 40px;
         }
 
         .profile-nav .nav-link {
@@ -107,14 +107,14 @@
                     <div class="d-flex align-items-center gap-3 gap-md-4">
                         <div class="position-relative">
                             <div class="profile-avatar-circle">
-                                <asp:Label ID="lblAvatarInitials" runat="server" Text="CU"></asp:Label>
+                                <asp:Label ID="lblAvatar" runat="server"></asp:Label>
                             </div>
                             <span class="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle p-2" title="Verified Customer"></span>
                         </div>
                         <div>
                             <div class="d-flex align-items-center gap-2 flex-wrap">
                                 <h2 class="fw-bold mb-0 text-dark">
-                                    <asp:Label ID="lblCustomerFullName" runat="server" ></asp:Label>
+                                    <asp:Label ID="lblcname" runat="server"></asp:Label>
                                 </h2>
                                 <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 border border-success-subtle small fw-medium">
                                     <i class="bi bi-shield-check me-1"></i>Verified Member
@@ -122,12 +122,11 @@
                             </div>
                             <p class="text-muted mb-2 mt-1">
                                 <i class="bi bi-envelope me-1"></i>
-                                <asp:Label ID="lblHeaderEmail" runat="server" Text="customer@example.com"></asp:Label>
-                                <span class="mx-2">•</span>
-                                <i class="bi bi-geo-alt me-1 text-danger"></i>
-                                <asp:Label ID="lblHeaderCity" runat="server" Text="Rajkot, Gujarat"></asp:Label>
+                                <asp:Label ID="lbleml" runat="server"></asp:Label>
+                                &nbsp;<asp:Label ID="lblHeaderCity" runat="server" Text="Rajkot, Gujarat"></asp:Label>
                             </p>
                             <small class="text-secondary">Member since
+                               
                                 <asp:Label ID="lblJoinDate" runat="server" Text="2026"></asp:Label></small>
                         </div>
                     </div>
@@ -219,7 +218,8 @@
                                     </div>
                                     <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill small">
                                         <i class="bi bi-info-circle me-1"></i>ID:
-                                        <asp:Label ID="lblCustomerId" runat="server" Text="--"></asp:Label>
+                                       
+                                        <asp:Label ID="lblcid" runat="server" Text="--"></asp:Label>
                                     </span>
                                 </div>
 
@@ -294,13 +294,12 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="txtAddress" class="form-label fw-medium small text-dark">Delivery Address</label>
-                                    <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control rounded-3 py-2 bg-light border-1" placeholder="Flat / House No., Apartment, Street, Landmark, Area"></asp:TextBox>
                                 </div>
 
                                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pt-3 border-top">
                                     <div class="text-muted small">
                                         <i class="bi bi-check2-circle text-success me-1"></i>All changes are encrypted and safely stored.
+                                   
                                    
                                     </div>
                                     <div class="d-flex gap-2">
@@ -319,9 +318,17 @@
                                     <p class="text-muted small mb-0">Ensure your account uses a secure, modern password</p>
                                 </div>
 
-                                <asp:Panel ID="pnlPasswordAlert" runat="server" Visible="false" CssClass="alert alert-dismissible fade show rounded-3 mb-4" role="alert">
-                                    <asp:Label ID="lblPasswordAlert" runat="server"></asp:Label>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <asp:Panel ID="pnlPasswordAlert" runat="server"
+                                    Visible="false"
+                                    CssClass="alert rounded-3 mb-4"
+                                    role="alert">
+
+                                    <asp:Label ID="lblpassalert" runat="server"></asp:Label>
+
+                                    <button type="button" class="btn-close"
+                                        data-bs-dismiss="alert" aria-label="Close">
+                                    </button>
+
                                 </asp:Panel>
 
                                 <div class="row g-3 mb-3">
@@ -329,23 +336,23 @@
                                         <label for="txtCurrentPassword" class="form-label fw-medium small text-dark">Current Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text bg-light border-1"><i class="bi bi-key text-muted"></i></span>
-                                            <asp:TextBox ID="txtCurrentPassword" runat="server" TextMode="Password" CssClass="form-control rounded-end-3 py-2 bg-light border-1" placeholder="Enter current password"></asp:TextBox>
+                                            <asp:TextBox ID="txtcurrentpass" runat="server" TextMode="Password" CssClass="form-control rounded-end-3 py-2 bg-light border-1" placeholder="Enter current password"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="txtNewPassword" class="form-label fw-medium small text-dark">New Password</label>
+                                        <label for="txtnewpass" class="form-label fw-medium small text-dark">New Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text bg-light border-1"><i class="bi bi-lock text-muted"></i></span>
-                                            <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="form-control rounded-end-3 py-2 bg-light border-1" placeholder="Enter new password"></asp:TextBox>
+                                            <asp:TextBox ID="txtnewpass" runat="server" TextMode="Password" CssClass="form-control rounded-end-3 py-2 bg-light border-1" placeholder="Enter new password"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="txtConfirmPassword" class="form-label fw-medium small text-dark">Confirm New Password</label>
+                                        <label for="txtconfirmpass" class="form-label fw-medium small text-dark">Confirm New Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text bg-light border-1"><i class="bi bi-lock-fill text-muted"></i></span>
-                                            <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="form-control rounded-end-3 py-2 bg-light border-1" placeholder="Repeat new password"></asp:TextBox>
+                                            <asp:TextBox ID="txtconfirmpass" runat="server" TextMode="Password" CssClass="form-control rounded-end-3 py-2 bg-light border-1" placeholder="Repeat new password"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -411,6 +418,7 @@
                                                 <button type="button" class="btn btn-sm btn-primary rounded-pill px-3">
                                                     View Details
                                                
+                                               
                                                 </button>
                                             </div>
                                         </div>
@@ -445,6 +453,7 @@
                                                 </a>
                                                 <button type="button" class="btn btn-sm btn-light border rounded-pill px-3">
                                                     Download Invoice
+                                               
                                                
                                                 </button>
                                             </div>
@@ -496,6 +505,7 @@
                                     <button type="button" class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#addAddressModal">
                                         <i class="bi bi-plus-lg me-1"></i>Add New Address
                                    
+                                   
                                     </button>
                                 </div>
 
@@ -528,6 +538,7 @@
                                             </div>
                                             <p class="text-muted small mb-3">
                                                 304, Sapphire Complex, 150 Feet Ring Road, Rajkot, Gujarat - 360004
+                                           
                                            
                                             </p>
                                             <div class="d-flex gap-2">
@@ -590,6 +601,5 @@
                 </div>
             </div>
         </div>
-    </section>
     </section>
 </asp:Content>

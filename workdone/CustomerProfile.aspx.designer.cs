@@ -15,31 +15,31 @@ namespace workdone
     {
 
         /// <summary>
-        /// lblAvatarInitials control.
+        /// lblAvatar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAvatarInitials;
+        protected global::System.Web.UI.WebControls.Label lblAvatar;
 
         /// <summary>
-        /// lblCustomerFullName control.
+        /// lblcname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerFullName;
+        protected global::System.Web.UI.WebControls.Label lblcname;
 
         /// <summary>
-        /// lblHeaderEmail control.
+        /// lbleml control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeaderEmail;
+        protected global::System.Web.UI.WebControls.Label lbleml;
 
         /// <summary>
         /// lblHeaderCity control.
@@ -69,13 +69,13 @@ namespace workdone
         protected global::System.Web.UI.WebControls.LinkButton btnLogout;
 
         /// <summary>
-        /// lblCustomerId control.
+        /// lblcid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerId;
+        protected global::System.Web.UI.WebControls.Label lblcid;
 
         /// <summary>
         /// pnlAlertMessage control.
@@ -150,15 +150,6 @@ namespace workdone
         protected global::System.Web.UI.WebControls.DropDownList ddlCity;
 
         /// <summary>
-        /// txtAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
-
-        /// <summary>
         /// btnUpdateProfile control.
         /// </summary>
         /// <remarks>
@@ -177,40 +168,40 @@ namespace workdone
         protected global::System.Web.UI.WebControls.Panel pnlPasswordAlert;
 
         /// <summary>
-        /// lblPasswordAlert control.
+        /// lblpassalert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPasswordAlert;
+        protected global::System.Web.UI.WebControls.Label lblpassalert;
 
         /// <summary>
-        /// txtCurrentPassword control.
+        /// txtcurrentpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrentPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtcurrentpass;
 
         /// <summary>
-        /// txtNewPassword control.
+        /// txtnewpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtnewpass;
 
         /// <summary>
-        /// txtConfirmPassword control.
+        /// txtconfirmpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtconfirmpass;
 
         /// <summary>
         /// btnChangePassword control.
