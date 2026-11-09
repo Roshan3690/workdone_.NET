@@ -13,6 +13,8 @@ namespace workdone.Professional
 
     public partial class Dashboard
     {
+        protected global::System.Web.UI.WebControls.Label lblPartnerName;
+        protected global::System.Web.UI.WebControls.Label lblEarnings;
 
         /// <summary>
         /// lblPendingStat control.

@@ -18,27 +18,29 @@
                         <div class="search-box bg-white rounded-pill shadow-lg p-2 d-flex flex-column flex-md-row align-items-center mb-4">
                             <div class="input-group search-input border-end-md pe-md-2 mb-2 mb-md-0">
                                 <span class="input-group-text bg-transparent border-0 text-muted ps-3"><i class="bi bi-search"></i></span>
-                                <input type="text" class="form-control border-0 shadow-none ps-2" placeholder="What service do you need?">
+                                <asp:TextBox ID="txtHeroSearch" runat="server" CssClass="form-control border-0 shadow-none ps-2" placeholder="What service do you need?"></asp:TextBox>
                             </div>
                             <div class="input-group location-input px-md-2 mb-2 mb-md-0 border-end-md">
                                 <span class="input-group-text bg-transparent border-0 text-danger"><i class="bi bi-geo-alt-fill"></i></span>
-                                <select class="form-select border-0 shadow-none text-muted">
-                                    <option selected>Rajkot</option>
-                                    <option value="1">Ahmedabad</option>
-                                    <option value="2">Surat</option>
-                                </select>
+                                <asp:DropDownList ID="ddlHeroCity" runat="server" CssClass="form-select border-0 shadow-none text-muted">
+                                    <asp:ListItem Value="">All Cities</asp:ListItem>
+                                    <asp:ListItem Value="Rajkot">Rajkot</asp:ListItem>
+                                    <asp:ListItem Value="Ahmdabad">Ahmedabad</asp:ListItem>
+                                    <asp:ListItem Value="Surat">Surat</asp:ListItem>
+                                    <asp:ListItem Value="Vadodara">Vadodara</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
-                            <asp:Button ID="btnSearch" runat="server" Text="Find Professionals" CssClass="btn btn-primary rounded-pill px-4 py-3 py-md-2 w-100 w-md-auto ms-md-2 fw-medium text-nowrap" />
+                            <asp:Button ID="btnSearch" runat="server" Text="Find Professionals" CssClass="btn btn-primary rounded-pill px-4 py-3 py-md-2 w-100 w-md-auto ms-md-2 fw-medium text-nowrap" OnClick="btnSearch_Click" />
                         </div>
                         
                         <div class="quick-searches d-flex flex-wrap align-items-center gap-2 mt-4">
                             <span class="text-muted small fw-medium me-2">Popular:</span>
-                            <a href="#" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Plumber</a>
-                            <a href="#" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Electrician</a>
-                            <a href="#" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Home Cleaning</a>
-                            <a href="#" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">AC Repair</a>
-                            <a href="#" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Carpenter</a>
-                            <a href="#" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Painter</a>
+                            <a href="Professionals.aspx?service=Plumbing" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Plumber</a>
+                            <a href="Professionals.aspx?service=Electrician" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Electrician</a>
+                            <a href="Professionals.aspx?service=Home+Cleaning" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Home Cleaning</a>
+                            <a href="Professionals.aspx?service=AC+Repair" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">AC Repair</a>
+                            <a href="Professionals.aspx?service=Carpentry" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Carpenter</a>
+                            <a href="Professionals.aspx?service=Painting" class="badge bg-white text-dark border px-3 py-2 rounded-pill text-decoration-none shadow-sm hover-primary transition">Painter</a>
                         </div>
                     </div>
                     <div class="col-lg-5 d-none d-lg-block position-relative mt-5 mt-lg-0">
@@ -72,7 +74,7 @@
                         <h2 class="fw-bold mb-2">What service do you need?</h2>
                         <p class="text-muted mb-0">Choose from our wide range of professional services.</p>
                     </div>
-                    <a href="#" class="btn btn-outline-dark rounded-pill px-4 d-none d-md-inline-block fw-medium">View All Services</a>
+                    <a href="Services.aspx" class="btn btn-outline-dark rounded-pill px-4 d-none d-md-inline-block fw-medium">View All Services</a>
                 </div>
 
                 <div class="row g-4">
@@ -238,6 +240,7 @@
             </div>
         </section>
 
+
         <!-- 5. HOW IT WORKS -->
         <section id="how-it-works" class="py-5">
             <div class="container py-5 text-center">
@@ -280,6 +283,7 @@
             </div>
         </section>
 
+
         <!-- 6. PROFESSIONALS SECTION -->
         <section id="professionals" class="py-5 bg-light">
             <div class="container py-5">
@@ -288,111 +292,44 @@
                     <h2 class="fw-bold mt-2">Top Professionals Near You</h2>
                 </div>
                 
-                <div class="row g-4 justify-content-center">
-                    <!-- Worker Card 1 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
-                            <div class="d-flex align-items-center mb-4">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm" width="80" height="80" alt="Worker">
-                                <div>
-                                    <h5 class="fw-bold mb-1 d-flex align-items-center">Rahul Patel <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
-                                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Electrician</span>
+                    <asp:Repeater ID="rptFeaturedPros" runat="server">
+                        <ItemTemplate>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <img src='<%# (Eval("pic") == null || string.IsNullOrEmpty(Eval("pic").ToString())) ? "https://randomuser.me/api/portraits/men/32.jpg" : Eval("pic") %>' 
+                                             class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm object-fit-cover" width="80" height="80" alt="Worker">
+                                        <div>
+                                            <h5 class="fw-bold mb-1 d-flex align-items-center"><%# Eval("fname") %> <%# Eval("lname") %> <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
+                                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle"><%# Eval("service") %></span>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
+                                        <div class="col-4 border-end border-secondary-subtle">
+                                            <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.9</div>
+                                            <div class="small text-muted">Rating</div>
+                                        </div>
+                                        <div class="col-4 border-end border-secondary-subtle">
+                                            <div class="fw-bold fs-5 text-dark"><%# Eval("experience") %>+</div>
+                                            <div class="small text-muted">Jobs</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="fw-bold fs-5 text-dark"><%# Eval("experience") %> Yrs</div>
+                                            <div class="small text-muted">Exp</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
+                                        <i class="bi bi-geo-alt-fill text-danger me-2"></i> <%# Eval("city") %>
+                                        <span class="ms-auto fw-bold text-dark fs-6"><i class="bi bi-telephone text-success me-1"></i><%# Eval("phone") %></span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href='ProfessionalProfile.aspx?id=<%# Eval("Pid") %>' class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
+                                        <a href='Booking.aspx?id=<%# Eval("Pid") %>' class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
-                                <div class="col-4 border-end border-secondary-subtle">
-                                    <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.8</div>
-                                    <div class="small text-muted">Rating</div>
-                                </div>
-                                <div class="col-4 border-end border-secondary-subtle">
-                                    <div class="fw-bold fs-5 text-dark">320+</div>
-                                    <div class="small text-muted">Jobs</div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="fw-bold fs-5 text-dark">6 Yrs</div>
-                                    <div class="small text-muted">Exp</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
-                                <i class="bi bi-geo-alt-fill text-danger me-2"></i> Rajkot Area
-                                <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 299</span>
-                            </div>
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="Professionals.aspx" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                <a href="Professionals.aspx" class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Worker Card 2 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
-                            <div class="d-flex align-items-center mb-4">
-                                <img src="https://randomuser.me/api/portraits/men/44.jpg" class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm" width="80" height="80" alt="Worker">
-                                <div>
-                                    <h5 class="fw-bold mb-1 d-flex align-items-center">Amit Sharma <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
-                                    <span class="badge bg-info-subtle text-info border border-info-subtle">Plumber</span>
-                                </div>
-                            </div>
-                            <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
-                                <div class="col-4 border-end border-secondary-subtle">
-                                    <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.9</div>
-                                    <div class="small text-muted">Rating</div>
-                                </div>
-                                <div class="col-4 border-end border-secondary-subtle">
-                                    <div class="fw-bold fs-5 text-dark">512+</div>
-                                    <div class="small text-muted">Jobs</div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="fw-bold fs-5 text-dark">8 Yrs</div>
-                                    <div class="small text-muted">Exp</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
-                                <i class="bi bi-geo-alt-fill text-danger me-2"></i> Rajkot City
-                                <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 199</span>
-                            </div>
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="Professionals.aspx" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                <a href="Professionals.aspx" class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Worker Card 3 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card worker-card border-0 shadow-sm rounded-4 h-100 p-4">
-                            <div class="d-flex align-items-center mb-4">
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle border border-3 border-primary-subtle me-3 shadow-sm" width="80" height="80" alt="Worker">
-                                <div>
-                                    <h5 class="fw-bold mb-1 d-flex align-items-center">Sneha Desai <i class="bi bi-patch-check-fill text-primary ms-1 fs-6" title="Verified"></i></h5>
-                                    <span class="badge bg-success-subtle text-success border border-success-subtle">Cleaner</span>
-                                </div>
-                            </div>
-                            <div class="row text-center mb-4 g-2 bg-light rounded-3 py-2 mx-0">
-                                <div class="col-4 border-end border-secondary-subtle">
-                                    <div class="fw-bold fs-5 text-dark d-flex align-items-center justify-content-center"><i class="bi bi-star-fill text-warning fs-6 me-1"></i>4.7</div>
-                                    <div class="small text-muted">Rating</div>
-                                </div>
-                                <div class="col-4 border-end border-secondary-subtle">
-                                    <div class="fw-bold fs-5 text-dark">240+</div>
-                                    <div class="small text-muted">Jobs</div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="fw-bold fs-5 text-dark">3 Yrs</div>
-                                    <div class="small text-muted">Exp</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center text-muted small mb-4 pb-3 border-bottom">
-                                <i class="bi bi-geo-alt-fill text-danger me-2"></i> 150ft Ring Road
-                                <span class="ms-auto fw-bold text-dark fs-6">Starting Rs. 499</span>
-                            </div>
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="Professionals.aspx" class="btn btn-outline-primary rounded-pill w-50 fw-medium">View Profile</a>
-                                <a href="Professionals.aspx" class="btn btn-primary rounded-pill w-50 fw-medium">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
                 
                 <div class="text-center mt-5">
@@ -481,6 +418,7 @@
             </div>
         </section>
 
+
         <!-- 9. CUSTOMER REVIEWS -->
         <section class="py-5 bg-light">
             <div class="container py-5">
@@ -542,6 +480,7 @@
             </div>
         </section>
 
+
         <!-- 10. APP/PROMOTIONAL SECTION -->
         <section class="py-5 overflow-hidden">
             <div class="container py-5">
@@ -596,4 +535,5 @@
         </section>
 
 </asp:Content>
+
 

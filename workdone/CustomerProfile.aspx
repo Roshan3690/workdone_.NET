@@ -385,111 +385,58 @@
                                     </a>
                                 </div>
 
-                                <!-- Booking List -->
+                                <!-- Dynamic Booking List -->
+                                <asp:Panel ID="pnlNoBookings" runat="server" Visible="false" CssClass="text-center py-5">
+                                    <div class="mb-3">
+                                        <i class="bi bi-calendar-x text-muted opacity-50" style="font-size: 3rem;"></i>
+                                    </div>
+                                    <h5 class="fw-bold text-dark">No Bookings Yet</h5>
+                                    <p class="text-muted small mb-3">You have not booked any services yet. Need help around the house?</p>
+                                    <a href="Professionals.aspx" class="btn btn-primary rounded-pill px-4 btn-sm">Find Professionals</a>
+                                </asp:Panel>
+
                                 <div class="d-flex flex-column gap-3">
-                                    <!-- Booking Item 1 -->
-                                    <div class="booking-card p-4">
-                                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                                            <div>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <h5 class="fw-bold mb-0 text-dark">AC Deep Cleaning & Service</h5>
-                                                    <span class="badge badge-subtle-warning rounded-pill px-3 py-1 fw-medium small">Scheduled</span>
+                                    <asp:Repeater ID="rptProfileBookings" runat="server">
+                                        <ItemTemplate>
+                                            <div class="booking-card p-4 border rounded-4 shadow-sm bg-white">
+                                                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                                                    <div>
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <h5 class="fw-bold mb-0 text-dark"><%# Eval("service") %></h5>
+                                                            <span class='badge rounded-pill px-3 py-1 fw-medium small <%# Eval("status").ToString() == "Accepted" ? "bg-success text-white" : (Eval("status").ToString() == "Rejected" ? "bg-danger text-white" : "bg-warning text-dark") %>'>
+                                                                <%# Eval("status") %>
+                                                            </span>
+                                                        </div>
+                                                        <p class="text-muted small mb-0 mt-1">
+                                                            Booking #WD-<%# Eval("booking_Id") %> &bull; <%# Eval("booking_date") %> at <%# Eval("booking_time") %> (<%# Eval("duration") %> hrs)
+                                                        </p>
+                                                    </div>
+                                                    <div class="text-md-end">
+                                                        <span class="fs-6 fw-bold text-primary"><i class="bi bi-geo-alt-fill text-danger me-1"></i><%# Eval("address") %></span>
+                                                    </div>
                                                 </div>
-                                                <p class="text-muted small mb-0 mt-1">Booking #WD-84291 • Booked for Tomorrow, 11:00 AM</p>
-                                            </div>
-                                            <div class="text-md-end">
-                                                <span class="fs-5 fw-bold text-dark">₹799</span>
-                                                <div class="text-muted small">Cash / Online after service</div>
-                                            </div>
-                                        </div>
 
-                                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pt-3 border-top">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <img src="https://randomuser.me/api/portraits/men/44.jpg" class="rounded-circle border" width="36" height="36" alt="Worker">
-                                                <div>
-                                                    <div class="small fw-bold text-dark">Vikram Mehta</div>
-                                                    <small class="text-muted"><i class="bi bi-star-fill text-warning"></i>4.9 (124 reviews)</small>
+                                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pt-3 border-top">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src='<%# (Eval("ppic") == null || string.IsNullOrEmpty(Eval("ppic").ToString())) ? "https://randomuser.me/api/portraits/men/32.jpg" : Eval("ppic") %>' class="rounded-circle border" width="36" height="36" alt="Worker">
+                                                        <div>
+                                                            <div class="small fw-bold text-dark"><%# Eval("pfname") %> <%# Eval("plname") %></div>
+                                                            <small class="text-muted"><i class="bi bi-telephone text-success me-1"></i><%# Eval("pphone") %></small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex gap-2">
+                                                        <a href='tel:<%# Eval("pphone") %>' class="btn btn-sm btn-outline-secondary rounded-pill px-3">
+                                                            <i class="bi bi-telephone me-1"></i>Call Pro
+                                                        </a>
+                                                        <a href="MyBookings.aspx" class="btn btn-sm btn-primary rounded-pill px-3">
+                                                            View in My Bookings
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="d-flex gap-2">
-                                                <a href="tel:+919876543210" class="btn btn-sm btn-outline-secondary rounded-pill px-3">
-                                                    <i class="bi bi-telephone me-1"></i>Call Pro
-                                                </a>
-                                                <button type="button" class="btn btn-sm btn-primary rounded-pill px-3">
-                                                    View Details
-                                               
-                                               
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Booking Item 2 -->
-                                    <div class="booking-card p-4">
-                                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                                            <div>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <h5 class="fw-bold mb-0 text-dark">Complete Home Electrical Repair</h5>
-                                                    <span class="badge badge-subtle-success rounded-pill px-3 py-1 fw-medium small">Completed</span>
-                                                </div>
-                                                <p class="text-muted small mb-0 mt-1">Booking #WD-83104 • Completed on Sep 14, 2026</p>
-                                            </div>
-                                            <div class="text-md-end">
-                                                <span class="fs-5 fw-bold text-dark">₹499</span>
-                                                <div class="text-success small"><i class="bi bi-check-circle-fill me-1"></i>Paid</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pt-3 border-top">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle border" width="36" height="36" alt="Worker">
-                                                <div>
-                                                    <div class="small fw-bold text-dark">Rahul Patel</div>
-                                                    <small class="text-muted"><i class="bi bi-star-fill text-warning"></i>4.8 (89 reviews)</small>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex gap-2">
-                                                <a href="Professionals.aspx" class="btn btn-sm btn-outline-primary rounded-pill px-3">Book Again
-                                                </a>
-                                                <button type="button" class="btn btn-sm btn-light border rounded-pill px-3">
-                                                    Download Invoice
-                                               
-                                               
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Booking Item 3 -->
-                                    <div class="booking-card p-4">
-                                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                                            <div>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <h5 class="fw-bold mb-0 text-dark">Bathroom Plumbing & Tap Repair</h5>
-                                                    <span class="badge badge-subtle-success rounded-pill px-3 py-1 fw-medium small">Completed</span>
-                                                </div>
-                                                <p class="text-muted small mb-0 mt-1">Booking #WD-81992 • Completed on Aug 28, 2026</p>
-                                            </div>
-                                            <div class="text-md-end">
-                                                <span class="fs-5 fw-bold text-dark">₹349</span>
-                                                <div class="text-success small"><i class="bi bi-check-circle-fill me-1"></i>Paid</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pt-3 border-top">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle border" width="36" height="36" alt="Worker">
-                                                <div>
-                                                    <div class="small fw-bold text-dark">Manoj Solanki</div>
-                                                    <small class="text-muted"><i class="bi bi-star-fill text-warning"></i>4.7 (56 reviews)</small>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex gap-2">
-                                                <a href="Professionals.aspx" class="btn btn-sm btn-outline-primary rounded-pill px-3">Book Again
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
                                 </div>
                             </div>
                         </div>

@@ -49,12 +49,13 @@
                                 <i class="bi bi-geo-alt-fill text-danger me-1"></i> Rajkot
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm w-100" aria-labelledby="locationDropdown">
-                                <li><a class="dropdown-item" href="#">Rajkot</a></li>
-                                <li><a class="dropdown-item" href="#">Ahmedabad</a></li>
-                                <li><a class="dropdown-item" href="#">Surat</a></li>
+                                <li><a class="dropdown-item" href="Professionals.aspx?city=Rajkot">Rajkot</a></li>
+                                <li><a class="dropdown-item" href="Professionals.aspx?city=Ahmdabad">Ahmedabad</a></li>
+                                <li><a class="dropdown-item" href="Professionals.aspx?city=Surat">Surat</a></li>
+                                <li><a class="dropdown-item" href="Professionals.aspx?city=Vadodara">Vadodara</a></li>
                             </ul>
                         </div>
-                        <% if (Session["customer"] == null) { %>
+                        <% if (Session["customer"] == null && Session["professional"] == null) { %>
                             <a href="Login.aspx" class="text-decoration-none text-dark fw-medium btn-hover">Login</a>
                             <a href="Register.aspx" class="text-decoration-none text-dark fw-medium btn-hover">Sign Up</a>
                             <a href="JoinProfessional.aspx" class="btn btn-outline-primary rounded-pill px-4 fw-medium text-nowrap">Join as Professional</a>
@@ -71,7 +72,8 @@
                                                 <span class="d-block text-muted small">Professional</span>
                                             </li>
                                             <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item py-2 fw-medium" href="ProfessionalProfile.aspx"><i class="bi bi-person me-2 text-primary"></i>My Profile</a></li>
+                                            <li><a class="dropdown-item py-2 fw-medium" href="Professional/Dashboard.aspx"><i class="bi bi-speedometer2 me-2 text-primary"></i>My Dashboard</a></li>
+                                            <li><a class="dropdown-item py-2 fw-medium" href="CustomerProfile.aspx"><i class="bi bi-person me-2 text-primary"></i>My Profile</a></li>
                                             <li><a class="dropdown-item py-2 fw-medium" href="Professionals.aspx"><i class="bi bi-briefcase me-2 text-primary"></i>Find Professionals</a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li>

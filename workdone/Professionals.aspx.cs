@@ -41,10 +41,25 @@ namespace workdone
         void filldatalist()
         {
             getcon();
-            string query = "select * from profesonalTBL";
+            string query = "select * from profesonalTBL where 1=1";
             if (Request.QueryString["service"] != null && !string.IsNullOrEmpty(Request.QueryString["service"]))
             {
-                query = "select * from profesonalTBL where service = '" + Request.QueryString["service"] + "'";
+                query += " and service = '" + Request.QueryString["service"] + "'";
+            }
+
+            if (Request.QueryString["search"] != null && !string.IsNullOrEmpty(Request.QueryString["search"]))
+            {
+                query += " and (fname like '%" + Request.QueryString["search"].Trim() + "%' or lname like '%" + Request.QueryString["search"].Trim() + "%' or service like '%" + Request.QueryString["search"].Trim() + "%')";
+                txtSearch.Text = Request.QueryString["search"];
+            }
+
+            if (Request.QueryString["city"] != null && !string.IsNullOrEmpty(Request.QueryString["city"]))
+            {
+                query += " and city = '" + Request.QueryString["city"] + "'";
+                if (ddlCity.Items.FindByValue(Request.QueryString["city"]) != null)
+                {
+                    ddlCity.SelectedValue = Request.QueryString["city"];
+                }
             }
 
             da = new SqlDataAdapter(query, con);

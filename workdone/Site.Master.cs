@@ -11,31 +11,41 @@ namespace workdone
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string email = null;
             if (Session["customer"] != null)
             {
-                string email = Session["customer"].ToString();
+                email = Session["customer"].ToString();
+                IsProfessional = false;
+            }
+            else if (Session["professional"] != null)
+            {
+                email = Session["professional"].ToString();
+                IsProfessional = true;
+            }
+
+            if (!string.IsNullOrEmpty(email))
+            {
                 string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
                 
                 using (SqlConnection con = new SqlConnection(s))
                 {
                     con.Open();
                     
-                    // Check if customer
-                    using (SqlCommand cmd = new SqlCommand("SELECT fname, lname FROM customerTBL WHERE email = @email", con))
+                    if (!IsProfessional)
                     {
-                        cmd.Parameters.AddWithValue("@email", email);
-                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        using (SqlCommand cmd = new SqlCommand("SELECT fname, lname FROM customerTBL WHERE email = @email", con))
                         {
-                            if (dr.Read())
+                            cmd.Parameters.AddWithValue("@email", email);
+                            using (SqlDataReader dr = cmd.ExecuteReader())
                             {
-                                UserName = dr["fname"].ToString() + " " + dr["lname"].ToString();
-                                IsProfessional = false;
+                                if (dr.Read())
+                                {
+                                    UserName = dr["fname"].ToString() + " " + dr["lname"].ToString();
+                                }
                             }
                         }
                     }
-
-                    // If not customer, check if professional
-                    if (UserName == "User")
+                    else
                     {
                         using (SqlCommand cmd = new SqlCommand("SELECT fname, lname FROM profesonalTBL WHERE email = @email", con))
                         {
@@ -45,7 +55,6 @@ namespace workdone
                                 if (dr.Read())
                                 {
                                     UserName = dr["fname"].ToString() + " " + dr["lname"].ToString();
-                                    IsProfessional = true;
                                 }
                             }
                         }

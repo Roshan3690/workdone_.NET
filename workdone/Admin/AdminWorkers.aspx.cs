@@ -22,7 +22,10 @@ namespace workdone.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
-            fillgride();
+            if (!IsPostBack)
+            {
+                fillgride();
+            }
         }
 
         void getcon()
@@ -34,11 +37,41 @@ namespace workdone.Admin
         void fillgride()
         {
             getcon();
-            da = new SqlDataAdapter("Select * from profesonalTBL", con);
+            string query = "Select * from profesonalTBL where 1=1";
+
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                query += " and (fname like '%" + txtSearch.Text.Trim() + "%' or lname like '%" + txtSearch.Text.Trim() + "%' or service like '%" + txtSearch.Text.Trim() + "%')";
+            }
+
+            if (!string.IsNullOrEmpty(ddlServiceFilter.SelectedValue) && ddlServiceFilter.SelectedValue != "all")
+            {
+                query += " and service = '" + ddlServiceFilter.SelectedValue + "'";
+            }
+
+            if (!string.IsNullOrEmpty(ddlCityFilter.SelectedValue) && ddlCityFilter.SelectedValue != "all")
+            {
+                query += " and city = '" + ddlCityFilter.SelectedValue + "'";
+            }
+
+            query += " order by Pid desc";
+
+            da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+
+            lblTotalBadge.Text = "Total: " + ds.Tables[0].Rows.Count + " Professionals";
+
+            cmd = new SqlCommand("Select count(*) from profesonalTBL", con);
+            lblTotalWorkers.Text = cmd.ExecuteScalar().ToString();
+
+            cmd = new SqlCommand("Select count(distinct service) from profesonalTBL", con);
+            lblTotalServices.Text = cmd.ExecuteScalar().ToString();
+
+            cmd = new SqlCommand("Select count(distinct city) from profesonalTBL", con);
+            lblTotalCities.Text = cmd.ExecuteScalar().ToString();
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -48,6 +81,10 @@ namespace workdone.Admin
                 getcon();
                 cmd = new SqlCommand("delete from profesonalTBL where Pid = '" + e.CommandArgument + "'", con);
                 cmd.ExecuteNonQuery();
+
+                lblAlertMessage.Text = "Professional #" + e.CommandArgument + " deleted successfully.";
+                pnlAlert.Visible = true;
+
                 fillgride();
             }
         }

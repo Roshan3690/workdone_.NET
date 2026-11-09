@@ -116,7 +116,7 @@ namespace workdone
                 cmd.ExecuteNonQuery();
 
                 Label1.Text = "Request sent successfully!";
-                Response.Redirect("CustomerProfile.aspx");
+                Response.Redirect("MyBookings.aspx");
             }
             else
             {

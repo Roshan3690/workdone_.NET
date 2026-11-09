@@ -61,6 +61,8 @@ namespace workdone
                             }
                         }
                     }
+
+                    fillBookings();
                 }
                 else
                 {
@@ -94,6 +96,36 @@ namespace workdone
             else
             {
                 Response.Redirect("Login.aspx");
+            }
+        }
+
+        void fillBookings()
+        {
+            getcon();
+            string q = @"select b.*, p.fname as pfname, p.lname as plname, p.phone as pphone, p.pic as ppic 
+                         from bookingTBL b 
+                         left join profesonalTBL p on b.pro_id = p.Pid 
+                         where b.email = '" + Session["customer"] + "' order by b.booking_Id desc";
+            SqlDataAdapter bda = new SqlDataAdapter(q, con);
+            DataSet bds = new DataSet();
+            bda.Fill(bds);
+            if (bds.Tables[0].Rows.Count > 0)
+            {
+                rptProfileBookings.DataSource = bds;
+                rptProfileBookings.DataBind();
+                rptProfileBookings.Visible = true;
+                pnlNoBookings.Visible = false;
+
+                // Dynamically update primary address from their latest booking if available
+                if (bds.Tables[0].Rows[0]["address"] != DBNull.Value && !string.IsNullOrEmpty(bds.Tables[0].Rows[0]["address"].ToString()))
+                {
+                    lblDisplayAddress.Text = bds.Tables[0].Rows[0]["address"].ToString();
+                }
+            }
+            else
+            {
+                rptProfileBookings.Visible = false;
+                pnlNoBookings.Visible = true;
             }
         }
 

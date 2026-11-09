@@ -115,7 +115,7 @@
     <!-- HERO GREETING -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <h3 class="fw-bold text-dark mb-1">Welcome back, Partner!</h3>
+            <h3 class="fw-bold text-dark mb-1">Welcome back, <asp:Label ID="lblPartnerName" runat="server" Text="Partner"></asp:Label>!</h3>
             <p class="text-muted mb-0">Here is a summary of your assigned jobs, inquiries, and earnings.</p>
         </div>
         <div class="d-flex gap-2">
@@ -164,8 +164,8 @@
             <div class="stat-card">
                 <div>
                     <span class="text-muted small fw-medium d-block mb-1">Estimated Earnings</span>
-                    <h3 class="fw-bold mb-0 text-dark">₹42,800</h3>
-                    <span class="text-success small fw-medium"><i class="bi bi-graph-up"></i> +12% from last week</span>
+                    <h3 class="fw-bold mb-0 text-dark"><asp:Label ID="lblEarnings" runat="server" Text="?0"></asp:Label></h3>
+                    <span class="text-success small fw-medium"><i class="bi bi-graph-up"></i> Based on completed jobs</span>
                 </div>
                 <div class="stat-icon purple">
                     <i class="bi bi-cash-stack"></i>
@@ -260,10 +260,8 @@
 
                                     <!-- Action Buttons -->
                                     <div class="d-flex align-items-center gap-2 flex-shrink-0 mt-2 mt-sm-0">
-                                        <asp:LinkButton ID="lnkaccept" runat="server" CommandArgument='<%# Eval("booking_Id") %>' CommandName="cmdaccept">Accept</asp:LinkButton>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:LinkButton ID="lnkreject" runat="server" CommandArgument='<%# Eval("booking_Id") %>' CommandName="cmdreject">Reject</asp:LinkButton>
-                                        &nbsp;
+                                        <asp:LinkButton ID="lnkaccept" runat="server" CommandArgument='<%# Eval("booking_Id") %>' CommandName="cmdaccept" CssClass="btn btn-sm btn-success rounded-pill px-3 py-1 fw-medium shadow-sm"><i class="bi bi-check-lg me-1"></i>Accept</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkreject" runat="server" CommandArgument='<%# Eval("booking_Id") %>' CommandName="cmdreject" CssClass="btn btn-sm btn-outline-danger rounded-pill px-3 py-1 fw-medium"><i class="bi bi-x-lg me-1"></i>Reject</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -327,3 +325,4 @@
         </div>
     </div>
 </asp:Content>
+

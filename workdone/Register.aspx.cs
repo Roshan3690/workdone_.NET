@@ -69,11 +69,27 @@ namespace workdone
 
             if (Button1.Text == "Create Account")
             {
-                getcon();
-                cmd = new SqlCommand("INSERT INTO customerTBL (fname, lname, email, gender, phone, pass) VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + gender + "', '" + phone + "', '" + password + "')", con);
-                cmd.ExecuteNonQuery();
+                if (!string.IsNullOrEmpty(fname) && !string.IsNullOrEmpty(lname) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+                {
+                    getcon();
 
-                Response.Redirect("Login.aspx");
+                    cmd = new SqlCommand("select count(*) from customerTBL where email = '" + email + "'", con);
+                    int exists = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (exists > 0)
+                    {
+                        Label1.Text = "Email already registered. Please login.";
+                        return;
+                    }
+
+                    cmd = new SqlCommand("INSERT INTO customerTBL (fname, lname, email, gender, phone, pass) VALUES ('" + fname + "', '" + lname + "', '" + email + "', '" + gender + "', '" + phone + "', '" + password + "')", con);
+                    cmd.ExecuteNonQuery();
+
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    Label1.Text = "Fill all the fields";
+                }
             }
             //else if (Button1.Text == "Update")
             //{

@@ -22,7 +22,10 @@ namespace workdone.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
-            fillgride();
+            if (!IsPostBack)
+            {
+                fillgride();
+            }
         }
 
         void getcon()
@@ -34,11 +37,36 @@ namespace workdone.Admin
         void fillgride()
         {
             getcon();
-            da = new SqlDataAdapter("Select * from customerTBL", con);
+            string query = "Select * from customerTBL where 1=1";
+
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                query += " and (fname like '%" + txtSearch.Text.Trim() + "%' or lname like '%" + txtSearch.Text.Trim() + "%' or email like '%" + txtSearch.Text.Trim() + "%' or phone like '%" + txtSearch.Text.Trim() + "%')";
+            }
+
+            if (!string.IsNullOrEmpty(ddlGenderFilter.SelectedValue) && ddlGenderFilter.SelectedValue != "all")
+            {
+                query += " and gender = '" + ddlGenderFilter.SelectedValue + "'";
+            }
+
+            query += " order by Cid desc";
+
+            da = new SqlDataAdapter(query, con);
             ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+
+            lblTotalBadge.Text = "Total: " + ds.Tables[0].Rows.Count + " Customers";
+
+            cmd = new SqlCommand("Select count(*) from customerTBL", con);
+            lblTotalCustomers.Text = cmd.ExecuteScalar().ToString();
+
+            cmd = new SqlCommand("Select count(*) from customerTBL where gender = 'Male'", con);
+            lblMaleCount.Text = cmd.ExecuteScalar().ToString();
+
+            cmd = new SqlCommand("Select count(*) from customerTBL where gender = 'Female'", con);
+            lblFemaleCount.Text = cmd.ExecuteScalar().ToString();
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -48,8 +76,17 @@ namespace workdone.Admin
                 getcon();
                 cmd = new SqlCommand("delete from customerTBL where Cid = '" + e.CommandArgument + "'", con);
                 cmd.ExecuteNonQuery();
+
+                lblAlertMessage.Text = "Customer #" + e.CommandArgument + " deleted successfully.";
+                pnlAlert.Visible = true;
+
                 fillgride();
             }
+        }
+
+        protected void btnSearchCustomer_Click(object sender, EventArgs e)
+        {
+            fillgride();
         }
 
             

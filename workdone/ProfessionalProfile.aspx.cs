@@ -55,9 +55,15 @@ namespace workdone
                         lname = ds.Tables[0].Rows[0]["lname"].ToString();
                         service = ds.Tables[0].Rows[0]["service"].ToString();
                         pic = ds.Tables[0].Rows[0]["pic"].ToString();
-                        Image1.ImageUrl = pic;
+                        Image1.ImageUrl = string.IsNullOrEmpty(pic) ? "https://randomuser.me/api/portraits/men/32.jpg" : pic;
                         lblpronm.Text = fname + " " + lname;
                         lblprosrv.Text = service;
+                        Label2.Text = fname + " " + lname;
+                        lblCity.Text = ds.Tables[0].Rows[0]["city"].ToString();
+                        lblExperience.Text = ds.Tables[0].Rows[0]["experience"].ToString() + " Yrs";
+
+                        cmd = new SqlCommand("select count(*) from bookingTBL where pro_id = '" + id + "' and status = 'Accepted'", con);
+                        lblJobsDone.Text = cmd.ExecuteScalar().ToString();
                     }
                     else
                     {

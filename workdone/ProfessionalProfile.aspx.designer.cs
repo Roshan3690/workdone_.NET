@@ -59,6 +59,10 @@ namespace workdone
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
 
+        protected global::System.Web.UI.WebControls.Label lblCity;
+        protected global::System.Web.UI.WebControls.Label lblExperience;
+        protected global::System.Web.UI.WebControls.Label lblJobsDone;
+
         /// <summary>
         /// Button1 control.
         /// </summary>

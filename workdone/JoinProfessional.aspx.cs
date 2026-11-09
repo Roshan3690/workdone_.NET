@@ -80,12 +80,21 @@ namespace workdone
                 && !string.IsNullOrEmpty(address) && !string.IsNullOrEmpty(aadhaarId))
             {
                 getcon();
+
+                cmd = new SqlCommand("select count(*) from profesonalTBL where email = '" + email + "'", con);
+                int exists = Convert.ToInt32(cmd.ExecuteScalar());
+                if (exists > 0)
+                {
+                    Label1.Text = "Email already registered as a professional. Please login.";
+                    return;
+                }
+
                 imgupload();
                 cmd = new SqlCommand("insert into profesonalTBL values('" + fname + "','" + lname + "','" + phone + "','" + city + "','" + service + "','" + experience + "','" + email + "','" + gender + "','" + address + "','" + fnm + "','" + aadhaarId + "','"+prof_password+"')", con);
                 
                 cmd.ExecuteNonQuery();
 
-                Response.Redirect("Default.aspx");
+                Response.Redirect("Login.aspx");
             }
             else
             {

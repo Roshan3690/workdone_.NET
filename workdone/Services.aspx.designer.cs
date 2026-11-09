@@ -13,5 +13,13 @@ namespace workdone
 
     public partial class Services
     {
+        protected global::System.Web.UI.WebControls.Label lblHomeCleaningCount;
+        protected global::System.Web.UI.WebControls.Label lblPlumbingCount;
+        protected global::System.Web.UI.WebControls.Label lblElectricianCount;
+        protected global::System.Web.UI.WebControls.Label lblACRepairCount;
+        protected global::System.Web.UI.WebControls.Label lblCarpentryCount;
+        protected global::System.Web.UI.WebControls.Label lblPaintingCount;
+        protected global::System.Web.UI.WebControls.Label lblBeautyCount;
+        protected global::System.Web.UI.WebControls.Label lblVehicleCount;
     }
 }

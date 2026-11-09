@@ -371,7 +371,7 @@
                                 <span class="text-white-50 small ms-1">(128 reviews)</span>
                             </div>
                             <div class="d-flex align-items-center gap-2 text-white-50 small">
-                                <i class="bi bi-geo-alt-fill text-danger"></i>Rajkot, Gujarat
+                                <i class="bi bi-geo-alt-fill text-danger"></i><asp:Label ID="lblCity" runat="server"></asp:Label>, Gujarat
                                 &nbsp;·&nbsp;
                                
                                
@@ -395,13 +395,13 @@
                         </div>
                         <div class="col-4">
                             <div class="hero-stat-box">
-                                <div class="stat-val">340+</div>
+                                <div class="stat-val"><asp:Label ID="lblJobsDone" runat="server" Text="0"></asp:Label></div>
                                 <div class="stat-lbl">Jobs Done</div>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="hero-stat-box">
-                                <div class="stat-val">10 Yrs</div>
+                                <div class="stat-val"><asp:Label ID="lblExperience" runat="server" Text="5 Yrs"></asp:Label></div>
                                 <div class="stat-lbl">Experience</div>
                             </div>
                         </div>
@@ -423,17 +423,10 @@
                     <div class="profile-card">
                         <div class="section-title"><i class="bi bi-person-lines-fill"></i>About</div>
                         <p class="text-muted mb-0" style="line-height: 1.75;">
-                            Hi! I'm <strong>Roshan Pandit</strong><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                            , a professional home cleaning specialist with over
-                           
-                           
-
-                            <strong>10 years of experience</strong> serving households across Rajkot. I take pride in
-                            delivering thorough, reliable, and eco-friendly cleaning services. My attention to detail and
-                            commitment to customer satisfaction have earned me 340+ completed jobs and a loyal client base.
-                            I am fully equipped with professional-grade tools and use safe, non-toxic cleaning products.
-                       
-                       
+                            Hi! I'm <strong><asp:Label ID="Label2" runat="server"></asp:Label></strong>
+                            , a professional service provider with years of trusted experience.
+                            I take pride in delivering thorough, reliable, and high-quality services to every customer.
+                            My attention to detail and commitment to customer satisfaction ensure all jobs are completed smoothly and professionally.
                         </p>
                     </div>
 

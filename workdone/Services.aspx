@@ -23,7 +23,10 @@
                             <i class="bi bi-house-heart text-primary fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Home Cleaning</h5>
-                        <p class="text-muted small mt-2">Deep cleaning, regular cleaning</p>
+                        <p class="text-muted small mt-2 mb-2">Deep cleaning, regular cleaning</p>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblHomeCleaningCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -32,7 +35,10 @@
                             <i class="bi bi-droplet text-info fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Plumbing</h5>
-                        <p class="text-muted small mt-2">Leak fixes, pipe installation</p>
+                        <p class="text-muted small mt-2 mb-2">Leak fixes, pipe installation</p>
+                        <span class="badge bg-info-subtle text-info border border-info-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblPlumbingCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -41,7 +47,10 @@
                             <i class="bi bi-lightning-charge text-warning fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Electrician</h5>
-                        <p class="text-muted small mt-2">Wiring, appliance repair</p>
+                        <p class="text-muted small mt-2 mb-2">Wiring, appliance repair</p>
+                        <span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblElectricianCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -50,7 +59,10 @@
                             <i class="bi bi-snow text-danger fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">AC Repair</h5>
-                        <p class="text-muted small mt-2">Servicing, gas refill</p>
+                        <p class="text-muted small mt-2 mb-2">Servicing, gas refill</p>
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblACRepairCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -59,7 +71,10 @@
                             <i class="bi bi-hammer text-success fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Carpentry</h5>
-                        <p class="text-muted small mt-2">Furniture repair, assembly</p>
+                        <p class="text-muted small mt-2 mb-2">Furniture repair, assembly</p>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblCarpentryCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -68,7 +83,10 @@
                             <i class="bi bi-brush text-secondary fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Painting</h5>
-                        <p class="text-muted small mt-2">Wall painting, texture</p>
+                        <p class="text-muted small mt-2 mb-2">Wall painting, texture</p>
+                        <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblPaintingCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -77,7 +95,10 @@
                             <i class="bi bi-scissors text-pink fs-2" style="color: #d63384;"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Beauty & Salon</h5>
-                        <p class="text-muted small mt-2">At-home beauty services</p>
+                        <p class="text-muted small mt-2 mb-2">At-home beauty services</p>
+                        <span class="badge rounded-pill px-3 py-1 small" style="background-color: #fce7f3; color: #be185d; border: 1px solid #fbcfe8;">
+                            <asp:Label ID="lblBeautyCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3">
@@ -86,7 +107,10 @@
                             <i class="bi bi-car-front text-dark fs-2"></i>
                         </div>
                         <h5 class="card-title text-dark fw-bold mb-0">Vehicle Repair</h5>
-                        <p class="text-muted small mt-2">Car & bike servicing</p>
+                        <p class="text-muted small mt-2 mb-2">Car & bike servicing</p>
+                        <span class="badge bg-dark-subtle text-dark border border-dark-subtle rounded-pill px-3 py-1 small">
+                            <asp:Label ID="lblVehicleCount" runat="server" Text="Available"></asp:Label>
+                        </span>
                     </a>
                 </div>
             </div>

@@ -31,17 +31,19 @@ namespace workdone.Professional
                 getcon();
                 if (!IsPostBack)
                 {
-                    cmd = new SqlCommand("select Pid from profesonalTBL where email = '" + Session["professional"].ToString() + "'", con);
-                    object pid = cmd.ExecuteScalar();
-
-                    
-                    if (pid != null)
+                    cmd = new SqlCommand("select Pid, fname, lname from profesonalTBL where email = '" + Session["professional"].ToString() + "'", con);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        ViewState["Pid"] = pid.ToString();
+                        if (dr.Read())
+                        {
+                            ViewState["Pid"] = dr["Pid"].ToString();
+                            lblPartnerName.Text = dr["fname"].ToString() + " " + dr["lname"].ToString();
+                        }
+                    }
+
+                    if (ViewState["Pid"] != null)
+                    {
                         filldatalist();
-
-                       
-
                     }
                     
                 }
@@ -55,13 +57,19 @@ namespace workdone.Professional
         void filldatalist()
         {
             getcon();
-            da = new SqlDataAdapter("select * from bookingTBL where pro_id = '" + ViewState["Pid"] + "'", con);
+            da = new SqlDataAdapter("select * from bookingTBL where pro_id = '" + ViewState["Pid"] + "' order by booking_Id desc", con);
             ds = new DataSet();
             da.Fill(ds);
             DataList1.DataSource = ds;
             DataList1.DataBind();
 
-            
+            cmd = new SqlCommand("select count(*) from bookingTBL where pro_id = '" + ViewState["Pid"] + "' and status = 'Pending'", con);
+            lblPendingStat.Text = cmd.ExecuteScalar().ToString();
+
+            cmd = new SqlCommand("select count(*) from bookingTBL where pro_id = '" + ViewState["Pid"] + "' and status = 'Accepted'", con);
+            int acceptedCount = Convert.ToInt32(cmd.ExecuteScalar());
+            lblCompletedStat.Text = acceptedCount.ToString();
+            lblEarnings.Text = "₹" + (acceptedCount * 499).ToString("N0");
         }
 
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
